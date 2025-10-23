@@ -1,521 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>War Thunder Mobile Wiki - Complete Vehicle Guide</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
-            line-height: 1.6;
-        }
-        
-        .header {
-            background: linear-gradient(90deg, #0f3460 0%, #16213e 100%);
-            padding: 2rem 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            background: linear-gradient(90deg, #ff6b6b, #f06595, #cc5de8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .header p {
-            font-size: 1.2rem;
-            color: #a8dadc;
-        }
-        
-        .nav {
-            background: #0f3460;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        
-        .nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            background: rgba(255,255,255,0.1);
-        }
-        
-        .nav a:hover {
-            background: #e63946;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(230,57,70,0.4);
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .section {
-            margin: 3rem 0;
-        }
-        
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: #f1faee;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .vehicle-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .vehicle-card {
-            background: linear-gradient(145deg, #1d3557 0%, #0f3460 100%);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .vehicle-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(230,57,70,0.3);
-            border-color: #e63946;
-        }
-        
-        .vehicle-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #2a2a3e, #1a1a2e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: #457b9d;
-        }
-        
-        .vehicle-content {
-            padding: 1.5rem;
-        }
-        
-        .vehicle-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: #f1faee;
-        }
-        
-        .vehicle-meta {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .badge {
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
-        
-        .badge-nation {
-            background: #457b9d;
-        }
-        
-        .badge-rank {
-            background: #e63946;
-        }
-        
-        .badge-type {
-            background: #2a9d8f;
-        }
-        
-        .vehicle-stats {
-            background: rgba(0,0,0,0.3);
-            padding: 1rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-        }
-        
-        .stat-row {
-            display: flex;
-            justify-content: space-between;
-            margin: 0.5rem 0;
-            padding: 0.3rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .stat-row:last-child {
-            border-bottom: none;
-        }
-        
-        .playstyle {
-            background: rgba(102,194,165,0.2);
-            padding: 1rem;
-            border-radius: 10px;
-            border-left: 4px solid #2a9d8f;
-            margin-top: 1rem;
-        }
-        
-        .playstyle h4 {
-            color: #66c2a5;
-            margin-bottom: 0.5rem;
-        }
-        
-        footer {
-            background: #0f3460;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-        
-        footer p {
-            color: #a8dadc;
-        }
-        
-        .search-box {
-            max-width: 600px;
-            margin: 2rem auto;
-            position: relative;
-        }
-        
-        .search-box input {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 50px;
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            outline: none;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-        
-        .search-box input:focus {
-            background: rgba(255,255,255,0.15);
-            border-color: #e63946;
-        }
-        
-        .search-box input::placeholder {
-            color: #a8dadc;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>War Thunder Mobile Wiki — MN2 (WTM Nations)</title>
+  <meta name="description" content="War Thunder Mobile vehicle wiki — WW2 + Early Cold War aircraft only; mobile nations (MN2)" />
+  <style>
+    :root{--bg:#071021;--card:#0f2a44;--accent:#e63946;--muted:#9fb6c8}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#e6f2f8;background:linear-gradient(180deg,var(--bg),#071022);}
+    header{padding:28px 18px;text-align:center;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent)}
+    header h1{margin:0;font-size:1.6rem;background:linear-gradient(90deg,#ff6b6b,#f06595);-webkit-background-clip:text;background-clip:text;color:transparent}
+    header p{margin:6px 0 0;color:var(--muted)}
+    .container{max-width:1200px;margin:20px auto;padding:0 16px}
+    .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+    .left{display:flex;gap:8px;align-items:center}
+    input.search{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02);min-width:220px;color:inherit}
+    select{padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02)}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
+    @media(min-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1200px){.grid{grid-template-columns:repeat(3,1fr)}}
+    .nation{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .nation-header{display:flex;align-items:center;gap:10px;cursor:pointer}
+    .nation-header h2{margin:0;font-size:1.05rem}
+    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:10px}
+    .card{background:linear-gradient(145deg,rgba(255,255,255,0.01),rgba(255,255,255,0.015));padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);transition:transform .18s}
+    .card:hover{transform:translateY(-8px)}
+    .card h3{margin:4px 0}
+    .badges{display:flex;gap:6px;flex-wrap:wrap}
+    .badge{padding:5px 8px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:0.8rem;color:var(--muted)}
+    .stats{margin-top:8px;background:rgba(0,0,0,0.2);padding:6px;border-radius:8px}
+    .stat{display:flex;justify-content:space-between;font-size:0.9rem;margin:4px 0}
+    footer{margin-top:22px;padding:12px;text-align:center;color:var(--muted)}
+    .collapse{overflow:hidden;transition:max-height .25s ease;max-height:0}
+    .collapse.open{max-height:2400px}
+    .muted{color:var(--muted)}
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>⚔️ War Thunder Mobile Wiki ⚔️</h1>
-        <p>Complete Vehicle Database | Tanks, Planes & Playstyles</p>
-    </div>
-    
-    <div class="nav">
-        <a href="#tanks">🛡️ Tanks</a>
-        <a href="#aircraft">✈️ Aircraft</a>
-        <a href="#nations">🌍 Nations</a>
-        <a href="#guides">📖 Guides</a>
-    </div>
-    
-    <div class="container">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search for tanks, planes, nations..." onkeyup="filterVehicles()">
-        </div>
-        
-        <div class="section" id="tanks">
-            <h2>🛡️ Ground Forces</h2>
-            <div class="vehicle-grid" id="tankGrid">
-                
-                <!-- M4 Sherman -->
-                <div class="vehicle-card" data-name="m4 sherman usa medium">
-                    <div class="vehicle-img">🪖</div>
-                    <div class="vehicle-content">
-                        <h3>M4 Sherman</h3>
-                        <div class="vehicle-meta">
-                            <span class="badge badge-nation">USA</span>
-                            <span class="badge badge-rank">Rank III</span>
-                            <span class="badge badge-type">Medium Tank</span>
-                        </div>
-                        <div class="vehicle-stats">
-                            <div class="stat-row">
-                                <span>Firepower:</span>
-                                <span>⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Armor:</span>
-                                <span>⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Mobility:</span>
-                                <span>⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Gun Caliber:</span>
-                                <span>75mm</span>
-                            </div>
-                        </div>
-                        <div class="playstyle">
-                            <h4>Playstyle & Tips:</h4>
-                            <p>The M4 Sherman is a versatile medium tank. Use your good gun depression to fight from hull-down positions. Your stabilizer allows accurate fire on the move. Flank enemies to hit weak side armor. Good all-rounder for learning tank combat.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- T-34 -->
-                <div class="vehicle-card" data-name="t-34 ussr medium soviet">
-                    <div class="vehicle-img">☭</div>
-                    <div class="vehicle-content">
-                        <h3>T-34</h3>
-                        <div class="vehicle-meta">
-                            <span class="badge badge-nation">USSR</span>
-                            <span class="badge badge-rank">Rank II</span>
-                            <span class="badge badge-type">Medium Tank</span>
-                        </div>
-                        <div class="vehicle-stats">
-                            <div class="stat-row">
-                                <span>Firepower:</span>
-                                <span>⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Armor:</span>
-                                <span>⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Mobility:</span>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Gun Caliber:</span>
-                                <span>76mm</span>
-                            </div>
-                        </div>
-                        <div class="playstyle">
-                            <h4>Playstyle & Tips:</h4>
-                            <p>The legendary T-34 combines speed, armor, and firepower. Use your excellent mobility to flank and relocate quickly. Angled armor is very effective - angle your hull at 30-45 degrees. Brawl at medium range where your sloped armor shines. Aggressive flanking playstyle recommended.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Tiger I -->
-                <div class="vehicle-card" data-name="tiger panzer germany heavy">
-                    <div class="vehicle-img">🐯</div>
-                    <div class="vehicle-content">
-                        <h3>Tiger I (Pz.Kpfw. VI)</h3>
-                        <div class="vehicle-meta">
-                            <span class="badge badge-nation">Germany</span>
-                            <span class="badge badge-rank">Rank IV</span>
-                            <span class="badge badge-type">Heavy Tank</span>
-                        </div>
-                        <div class="vehicle-stats">
-                            <div class="stat-row">
-                                <span>Firepower:</span>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Armor:</span>
-                                <span>⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Mobility:</span>
-                                <span>⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Gun Caliber:</span>
-                                <span>88mm KwK 36</span>
-                            </div>
-                        </div>
-                        <div class="playstyle">
-                            <h4>Playstyle & Tips:</h4>
-                            <p>The fearsome Tiger I has excellent firepower with the 88mm gun. Angle your hull to maximize armor effectiveness - unangled front plate is vulnerable. Play at medium to long range as a sniper. Your gun can penetrate most enemies frontally. Avoid close-range brawling. Support teammates and control key sightlines.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- M1 Abrams -->
-                <div class="vehicle-card" data-name="m1 abrams usa mbt modern">
-                    <div class="vehicle-img">🎖️</div>
-                    <div class="vehicle-content">
-                        <h3>M1 Abrams</h3>
-                        <div class="vehicle-meta">
-                            <span class="badge badge-nation">USA</span>
-                            <span class="badge badge-rank">Rank XIII</span>
-                            <span class="badge badge-type">MBT</span>
-                        </div>
-                        <div class="vehicle-stats">
-                            <div class="stat-row">
-                                <span>Firepower:</span>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Armor:</span>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Mobility:</span>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Gun Caliber:</span>
-                                <span>120mm M256</span>
-                            </div>
-                        </div>
-                        <div class="playstyle">
-                            <h4>Playstyle & Tips:</h4>
-                            <p>Top-tier MBT with exceptional speed and firepower. Use your mobility to control the map. Excellent gun handling and fast reload. Hull-down fighting with gun depression is key. Weak side armor - don't over-extend. Great for aggressive flanking and rapid repositioning.</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        <!-- AIRCRAFT SECTION -->
-        <div class="section" id="aircraft">
-            <h2>✈️ Aviation</h2>
-            <div class="vehicle-grid" id="aircraftGrid">
-                
-                <!-- P-51 Mustang -->
-                <div class="vehicle-card" data-name="p-51 mustang usa fighter">
-                    <div class="vehicle-img">🦅</div>
-                    <div class="vehicle-content">
-                        <h3>P-51 Mustang</h3>
-                        <div class="vehicle-meta">
-                            <span class="badge badge-nation">USA</span>
-                            <span class="badge badge-rank">Rank IV</span>
-                            <span class="badge badge-type">Fighter</span>
-                        </div>
-                        <div class="vehicle-stats">
-                            <div class="stat-row">
-                                <span>Speed:</span>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Armament:</span>
-                                <span>6x .50 cal</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Maneuverability:</span>
-                                <span>⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                        <div class="playstyle">
-                            <h4>Playstyle & Tips:</h4>
-                            <p>Legendary WWII fighter. Excellent energy retention and high-altitude performance. Boom and zoom tactics work best. Dive on enemies, attack, then climb away. Great guns with high ammo count. Energy fighter - maintain speed advantage over enemies.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Bf 109 -->
-                <div class="vehicle-card" data-name="bf 109 messerschmitt germany fighter">
-                    <div class="vehicle-img">✈️</div>
-                    <div class="vehicle-content">
-                        <h3>Bf 109 (Messerschmitt)</h3>
-                        <div class="vehicle-meta">
-                            <span class="badge badge-nation">Germany</span>
-                            <span class="badge badge-rank">Rank III</span>
-                            <span class="badge badge-type">Fighter</span>
-                        </div>
-                        <div class="vehicle-stats">
-                            <div class="stat-row">
-                                <span>Speed:</span>
-                                <span>⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Armament:</span>
-                                <span>20mm + MGs</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Maneuverability:</span>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                        <div class="playstyle">
-                            <h4>Playstyle & Tips:</h4>
-                            <p>Iconic German fighter with excellent climb rate and energy retention. Great vertical maneuvers. Energy fighting is key - use your climb rate to gain altitude advantage. Mix of boom and zoom and energy fighting. Strong armament can destroy enemies quickly.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- MiG-29 -->
-                <div class="vehicle-card" data-name="mig-29 ussr jet fighter">
-                    <div class="vehicle-img">🚀</div>
-                    <div class="vehicle-content">
-                        <h3>MiG-29 Fulcrum</h3>
-                        <div class="vehicle-meta">
-                            <span class="badge badge-nation">USSR</span>
-                            <span class="badge badge-rank">Rank X</span>
-                            <span class="badge badge-type">Jet Fighter</span>
-                        </div>
-                        <div class="vehicle-stats">
-                            <div class="stat-row">
-                                <span>Speed:</span>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Armament:</span>
-                                <span>30mm + Missiles</span>
-                            </div>
-                            <div class="stat-row">
-                                <span>Maneuverability:</span>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                        <div class="playstyle">
-                            <h4>Playstyle & Tips:</h4>
-                            <p>Modern air superiority fighter. Exceptional maneuverability and acceleration. Use R-60 and R-27 missiles for BVR and dogfights. Great in turnfights at high speeds. Energy retention is good. Powerful 30mm cannon for close-in work. Dominate the skies with superior agility.</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-    
-    <footer>
-        <p>© 2025 War Thunder Mobile Wiki | Community-driven database | Not affiliated with Gaijin Entertainment</p>
-        <p>All vehicle data based on War Thunder Mobile game information</p>
-    </footer>
-    
-    <script>
-        function filterVehicles() {
-            const input = document.getElementById('searchInput');
-            const filter = input.value.toLowerCase();
-            const cards = document.querySelectorAll('.vehicle-card');
-            
-            cards.forEach(card => {
-                const searchText = card.getAttribute('data-name');
-                if (searchText.includes(filter)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
+  <header>
+    <h1>War Thunder Mobile Wiki — MN2 (WTM Nations)</h1>
+    <p>WW2 + Early Cold War aircraft only — no modern jets. GitHub Pages ready single-file.</p>
+  </header>
+
+  <div class="container">
+    <section class="controls">
+      <div class="left">
+        <input id="search" class="search" placeholder="Search vehicle, gun, BR, role..." oninput="render()">
+        <select id="filterNation" onchange="render()"><option value="">All Nations</option></select>
+        <select id="filterClass" onchange="render()"><option value="">All Classes</option><option>Fighter</option><option>Bomber</option><option>Ground Attack</option><option>Light Tank</option><option>Medium Tank</option><option>Heavy Tank</option><option>SPAA</option><option>Tank Destroyer</option><option>MBT</option></select>
+      </div>
+      <div>
+        <select id="sortBy" onchange="render()"><option value="name">Sort: Name</option><option value="rank">Sort: Rank</option><option value="br">Sort: BR</option></select>
+        <button onclick="resetFilters()">Reset</button>
+      </div>
+    </section>
+
+    <main id="content" class="grid" aria-live="polite"></main>
+
+    <div id="empty" class="muted" style="margin-top:12px">No vehicles match your filters.</div>
+  </div>
+
+  <footer>© 2025 War Thunder Mobile Wiki — Community Edition — Not affiliated with Gaijin Entertainment</footer>
+
+  <script>
+    // DATA_SOURCE: set to './data/vehicles.json' to use external file
+    const DATA_SOURCE = null;
+
+    // MN2 nations (only nations that have tech trees in War Thunder Mobile at the time of this build)
+    // Based on Gaijin/War Thunder Mobile info and community sources.
+    const MN2_NATIONS = ['USA','Germany','USSR','UK','Japan','China','Italy','France','Sweden','Israel'];
+
+    // Vehicles array: only WW2 + early Cold War jets included. No modern jets (MiG-29, F-16, etc.)
+    const vehicles = [
+      // USA - Tanks
+      {id:'m4_sherman', name:'M4 Sherman', nation:'USA', rank:'III', br:3.7, class:'Medium Tank', type:'Ground', stats:{firepower:'75mm',armor:'Medium',mobility:'Good'}, play:'Versatile medium tank. Hull-down and flanking.'},
+      {id:'m24_chaffee', name:'M24 Chaffee', nation:'USA', rank:'II', br:2.0, class:'Light Tank', type:'Ground', stats:{firepower:'75mm',armor:'Light',mobility:'Excellent'}, play:'Scout and flank; avoid heavy fights.'},
+      {id:'m1_abrams', name:'M1 Abrams', nation:'USA', rank:'XIII', br:10.0, class:'MBT', type:'Ground', stats:{firepower:'120mm',armor:'Very High',mobility:'Excellent'}, play:'Modern MBT (included as top-end ground unit).'},
+      // USA - Aircraft (WW2 + early cold war)
+      {id:'p51', name:'P-51 Mustang', nation:'USA', rank:'IV', br:5.0, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'6x .50 cal',maneuver:'Good'}, play:'Boom and zoom; maintain energy.'},
+      {id:'f6f_hellcat', name:'F6F Hellcat', nation:'USA', rank:'III', br:4.3, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'6x .50 cal',maneuver:'Good'}, play:'Carrier-capable fighter; good all-round.'},
+      {id:'f86_sabre', name:'F-86 Sabre', nation:'USA', rank:'VI', br:8.0, class:'Fighter', type:'Aircraft', stats:{speed:'Transonic',armament:'6x .50 cal / early missiles',maneuver:'Good'}, play:'Early Cold War jet — BVR & dogfight capable.'},
+
+      // Germany - Tanks
+      {id:'panzer_iv', name:'Panzer IV', nation:'Germany', rank:'III', br:3.3, class:'Medium Tank', type:'Ground', stats:{firepower:'75mm',armor:'Medium',mobility:'Average'}, play:'Versatile medium support tank.'},
+      {id:'tiger_i', name:'Tiger I', nation:'Germany', rank:'IV', br:5.3, class:'Heavy Tank', type:'Ground', stats:{firepower:'88mm',armor:'Heavy',mobility:'Slow'}, play:'Long-range sniper; angle armor.'},
+      {id:'jagdpanther', name:'Jagdpanther', nation:'Germany', rank:'V', br:6.0, class:'Tank Destroyer', type:'Ground', stats:{firepower:'88mm',armor:'Heavy',mobility:'Average'}, play:'Ambush from cover.'},
+      // Germany - Aircraft
+      {id:'bf109', name:'Bf 109', nation:'Germany', rank:'III', br:3.8, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'20mm',maneuver:'Excellent'}, play:'Climb & energy fighting.'},
+      {id:'fw190', name:'Fw 190', nation:'Germany', rank:'III', br:4.3, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'20mm',maneuver:'Good'}, play:'Versatile and powerful in broad roles.'},
+
+      // USSR - Tanks
+      {id:'t34', name:'T-34', nation:'USSR', rank:'II', br:2.7, class:'Medium Tank', type:'Ground', stats:{firepower:'76mm',armor:'Sloped',mobility:'Excellent'}, play:'Flank and brawl; angle hull.'},
+      {id:'t72', name:'T-72', nation:'USSR', rank:'IX', br:9.0, class:'MBT', type:'Ground', stats:{firepower:'125mm',armor:'Heavy',mobility:'Good'}, play:'Modern MBT with autoloader.'},
+      // USSR - Aircraft
+      {id:'yak3', name:'Yak-3', nation:'USSR', rank:'III', br:3.7, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'20mm',maneuver:'Excellent'}, play:'Excellent turnfighter at low alt.'},
+      {id:'mig15', name:'MiG-15', nation:'USSR', rank:'V', br:8.7, class:'Fighter', type:'Aircraft', stats:{speed:'Subsonic',armament:'23mm cannon',maneuver:'Good'}, play:'Early Cold War jet — climb & BVR.'},
+
+      // UK - Tanks / Aircraft
+      {id:'churchill', name:'Churchill', nation:'UK', rank:'III', br:3.0, class:'Heavy Tank', type:'Ground', stats:{firepower:'75mm',armor:'Heavy',mobility:'Slow'}, play:'Armored support.'},
+      {id:'spitfire', name:'Spitfire', nation:'UK', rank:'III', br:4.0, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'20mm',maneuver:'Excellent'}, play:'Turnfighter; energy retention.'},
+      {id:'meteor_f3', name:'Gloster Meteor F.3', nation:'UK', rank:'V', br:8.8, class:'Fighter', type:'Aircraft', stats:{speed:'Transonic',armament:'20mm',maneuver:'Good'}, play:'Early jet; BVR & energy tactics.'},
+
+      // Japan
+      {id:'zero', name:'A6M Zero', nation:'Japan', rank:'II', br:3.0, class:'Fighter', type:'Aircraft', stats:{speed:'Moderate',armament:'20mm',maneuver:'Excellent'}, play:'Great turnfighter; capitalize on maneuverability.'},
+      {id:'chiha', name:'Type 90', nation:'Japan', rank:'X', br:9.3, class:'MBT', type:'Ground', stats:{firepower:'120mm',armor:'Heavy',mobility:'Good'}, play:'Modern MBT (ground only).'},
+
+      // China (PRC)
+      {id:'type59', name:'Type 59', nation:'China', rank:'VIII', br:7.3, class:'MBT', type:'Ground', stats:{firepower:'100mm',armor:'Good',mobility:'Good'}, play:'Robust medium with sloped armor.'},
+      {id:'j8f', name:'J-8F (not included)', nation:'China', rank:'', br:'', class:'', type:'', stats:{}, play:''},
+
+      // France
+      {id:'mirage3', name:'Mystere IV / early Mirage variants', nation:'France', rank:'VI', br:8.9, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'30mm / early missiles',maneuver:'Good'}, play:'Early cold-war jet (keep model conservative).'},
+      {id:'amx13', name:'AMX-13', nation:'France', rank:'IV', br:5.0, class:'Light Tank', type:'Ground', stats:{firepower:'75mm autoloader',armor:'Light',mobility:'Excellent'}, play:'Autoloader hit-and-run.'},
+
+      // Italy
+      {id:'m13_40', name:'Carro Armato M13/40', nation:'Italy', rank:'II', br:2.3, class:'Medium Tank', type:'Ground', stats:{firepower:'47mm',armor:'Light',mobility:'Average'}, play:'Early war Italian tank.'},
+
+      // Sweden
+      {id:'strv122', name:'Stridsvagn 122', nation:'Sweden', rank:'X', br:9.7, class:'MBT', type:'Ground', stats:{firepower:'120mm',armor:'High',mobility:'Good'}, play:'Well-armoured MBT.'},
+
+      // Israel
+      {id:'merkava1', name:'Merkava Mk.1', nation:'Israel', rank:'VIII', br:8.3, class:'MBT', type:'Ground', stats:{firepower:'105mm',armor:'High',mobility:'Good'}, play:'Designed for survivability.'}
+
+    ];
+
+    // Fetch external if configured
+    (async function init(){
+      if(DATA_SOURCE){
+        try{ const r=await fetch(DATA_SOURCE); const ext=await r.json(); if(Array.isArray(ext)) { vehicles.splice(0, vehicles.length, ...ext); } }catch(e){console.warn('external data load failed',e)}
+      }
+      buildFilters(); render();
+    })();
+
+    function unique(arr,key){ return [...new Set(arr.map(x=>x[key]||''))].filter(Boolean).sort(); }
+
+    function buildFilters(){ const nations = unique(vehicles,'nation'); const fn=document.getElementById('filterNation'); nations.forEach(n=>{ const o=document.createElement('option'); o.value=n; o.textContent=n; fn.appendChild(o); }); }
+
+    function render(){ const q=(document.getElementById('search').value||'').toLowerCase(); const fn=document.getElementById('filterNation').value; const fc=document.getElementById('filterClass').value; const sort=document.getElementById('sortBy').value;
+      let list = vehicles.filter(v=>{
+        if(fn && v.nation!==fn) return false; if(fc && v.class!==fc) return false; const hay = (v.name+' '+v.nation+' '+(v.class||'')+' '+(v.stats?Object.values(v.stats).join(' '):'')+' '+(v.play||'')).toLowerCase(); if(q && !hay.includes(q)) return false; return true;
+      });
+      if(sort==='name') list.sort((a,b)=>a.name.localeCompare(b.name)); if(sort==='rank') list.sort((a,b)=>parseRank(a.rank)-parseRank(b.rank)); if(sort==='br') list.sort((a,b)=> (a.br||0)-(b.br||0));
+
+      const byNation = {};
+      list.forEach(v=>{ (byNation[v.nation]||(byNation[v.nation]=[])).push(v); });
+      const content = document.getElementById('content'); content.innerHTML='';
+      if(list.length===0){ document.getElementById('empty').style.display='block'; } else { document.getElementById('empty').style.display='none'; }
+
+      Object.keys(byNation).sort().forEach(nation=>{
+        const sec = document.createElement('section'); sec.className='nation';
+        const header = document.createElement('div'); header.className='nation-header';
+        const h = document.createElement('h2'); h.textContent = nation + ' — ' + byNation[nation].length + ' vehicles';
+        header.appendChild(h);
+        sec.appendChild(header);
+        const wrap = document.createElement('div'); wrap.className='collapse open';
+        const cards = document.createElement('div'); cards.className='cards';
+        byNation[nation].forEach(v=>{
+          const card = document.createElement('article'); card.className='card';
+          const title = document.createElement('h3'); title.textContent = v.name;
+          const badges = document.createElement('div'); badges.className='badges'; badges.innerHTML = `<span class="badge">${v.class||''}</span><span class="badge">Rank ${v.rank||'N/A'}</span><span class="badge">BR ${v.br||'N/A'}</span>`;
+          const stats = document.createElement('div'); stats.className='stats'; if(v.stats){ for(const k in v.stats){ const row=document.createElement('div'); row.className='stat'; row.innerHTML = `<span class="muted">${k}</span><span>${v.stats[k]}</span>`; stats.appendChild(row);} }
+          const play = document.createElement('div'); play.className='muted'; play.textContent = v.play || '';
+          card.appendChild(title); card.appendChild(badges); card.appendChild(stats); card.appendChild(play);
+          cards.appendChild(card);
+        });
+        wrap.appendChild(cards); sec.appendChild(wrap);
+        header.onclick = ()=> wrap.classList.toggle('open');
+        content.appendChild(sec);
+      });
+    }
+
+    function parseRank(r){ try{ return parseInt(String(r).replace(/[^0-9]/g,''))||0;}catch(e){return 0}}
+    function resetFilters(){ document.getElementById('search').value=''; document.getElementById('filterNation').value=''; document.getElementById('filterClass').value=''; document.getElementById('sortBy').value='name'; render(); }
+
+  </script>
 </body>
 </html>

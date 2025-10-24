@@ -3,89 +3,218 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hated family wiki</title>
-  <meta name="description" content="War Thunder Mobile vehicle wiki — War Thunder Mobile Tanks Wiki — Comprehensive tanks database" />
+  <title>War Thunder Mobile Wiki</title>
+  <meta name="description" content="War Thunder Mobile vehicle wiki — Comprehensive tanks and planes database" />
   <style>
-    :root{--bg:#071021;--card:#0f2a44;--accent:#e63946;--muted:#9fb6c8}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#e6f2f8;background:linear-gradient(180deg,var(--bg),#071022);}
-    header{padding:28px 18px;text-align:center;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent)}
-    header h1{margin:0;font-size:1.6rem;background:linear-gradient(90deg,#ff6b6b,#f06595);-webkit-background-clip:text;background-clip:text;color:transparent}
-    header p{margin:6px 0 0;color:var(--muted)}
-    .container{max-width:1200px;margin:20px auto;padding:0 16px}
-    .btns{display:flex;flex-wrap:wrap;gap:10px}
-    button.item{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:#e6f2f8;border-radius:10px;padding:8px 12px;cursor:pointer}
-    button.item:hover{background:rgba(255,255,255,0.12)}
-    .section{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);margin:16px 0}
-    .section h2{margin:0 0 10px}
-    /* modal */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999}
-    .modal.open{display:flex}
-    .modal-card{background:var(--card);border:1px solid rgba(255,255,255,0.1);border-radius:12px;min-width:260px;max-width:90vw;padding:16px}
-    .modal-card h3{margin:0 0 8px}
-    .modal-actions{display:flex;justify-content:flex-end;margin-top:12px}
-    .close{background:#223b57;color:#e6f2f8;border:1px solid rgba(255,255,255,0.1);padding:6px 10px;border-radius:8px;cursor:pointer}
+    :root {
+      --bg: #071021;
+      --card: #0f2a44;
+      --accent: #e63946;
+      --muted: #9fb6c8;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color: #e6f2f8;
+      background: linear-gradient(180deg, var(--bg), #071022);
+      min-height: 100vh;
+    }
+    header {
+      padding: 28px 18px;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      background: linear-gradient(90deg, #ff6b6b, #f06595);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    header p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+    .section {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+      margin: 16px 0;
+    }
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+    }
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    button.item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #e6f2f8;
+      border-radius: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    button.item:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+      transition: all 0.2s;
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+    }
+    .modal.open {
+      display: flex;
+    }
+    .modal-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      min-width: 300px;
+      max-width: 90vw;
+      padding: 20px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .modal-card h3 {
+      margin: 0 0 12px;
+      color: #ff6b6b;
+    }
+    .modal-card img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    .modal-card p {
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+    }
+    .close {
+      background: #223b57;
+      color: #e6f2f8;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .close:hover {
+      background: #2a4a6a;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>WTM HATED FAMILY</h1>
-    <p>Testing my work.</p>
+    <h1>War Thunder Mobile Wiki</h1>
+    <p>Complete guide to tanks and planes</p>
   </header>
+  
   <div class="container">
-    <section class="section" id="tp-section">
-      <h2>Tanks and Planes</h2>
+    <section class="section">
+      <h2>🚜 Tanks</h2>
       <div class="btns" id="tankButtons"></div>
-      <div class="btns" id="planeButtons" style="margin-top:12px"></div>
+    </section>
+    
+    <section class="section">
+      <h2>✈️ Planes</h2>
+      <div class="btns" id="planeButtons"></div>
     </section>
   </div>
 
-  <div class="modal" id="nameModal" role="dialog" aria-modal="true">
+  <div class="modal" id="modal">
     <div class="modal-card">
       <h3 id="modalTitle"></h3>
+      <img id="modalImage" src="" alt="" />
+      <p id="modalInfo"></p>
       <div class="modal-actions">
-        <button class="close" id="closeModal">Close</button>
+        <button class="close" onclick="closeModal()">Close</button>
       </div>
     </div>
   </div>
 
   <script>
-    // Extracted from War Thunder Mobile Wiki snapshot on this page
     const tanks = [
-      'Pz.IV F2','Pz.IV G','StuG III F','M4A1','T34 (1940)','KV-2','Churchill I','M4',
-      'Calliope','KV-220','Panther D','Object 120','Bkan 1C'
-    ];
-    const planes = [
-      'B-10B'
+      { name: 'T-34', info: 'Soviet medium tank. Good armor and mobility. 76mm gun effective against most targets.', img: 'https://wiki.warthunder.com/images/thumb/5/5e/GarageImage_T-34_1941.jpg/330px-GarageImage_T-34_1941.jpg' },
+      { name: 'Sherman M4', info: 'American medium tank. Reliable and versatile. 75mm gun with good HE rounds.', img: 'https://wiki.warthunder.com/images/thumb/e/e8/GarageImage_M4.jpg/330px-GarageImage_M4.jpg' },
+      { name: 'Tiger I', info: 'German heavy tank. Powerful 88mm gun and strong frontal armor. Slow but deadly.', img: 'https://wiki.warthunder.com/images/thumb/9/92/GarageImage_Tiger_H1.jpg/330px-GarageImage_Tiger_H1.jpg' },
+      { name: 'Panther D', info: 'German medium tank. Excellent mobility and armor slope. 75mm long gun.', img: 'https://wiki.warthunder.com/images/thumb/0/04/GarageImage_Panther_D.jpg/330px-GarageImage_Panther_D.jpg' },
+      { name: 'IS-2', info: 'Soviet heavy tank. Massive 122mm gun can one-shot most tanks. Heavy armor.', img: 'https://wiki.warthunder.com/images/thumb/c/cd/GarageImage_IS-2.jpg/330px-GarageImage_IS-2.jpg' },
+      { name: 'Churchill VII', info: 'British heavy tank. Very thick armor but slow. 75mm gun with decent penetration.', img: 'https://wiki.warthunder.com/images/thumb/f/fb/GarageImage_Churchill_VII.jpg/330px-GarageImage_Churchill_VII.jpg' },
+      { name: 'Cromwell V', info: 'British light tank. Fast and agile. Good for flanking with 75mm gun.', img: 'https://wiki.warthunder.com/images/thumb/7/78/GarageImage_Cromwell_V.jpg/330px-GarageImage_Cromwell_V.jpg' },
+      { name: 'M18 Hellcat', info: 'American tank destroyer. Extremely fast with powerful 76mm gun. Light armor.', img: 'https://wiki.warthunder.com/images/thumb/1/13/GarageImage_M18_GMC.jpg/330px-GarageImage_M18_GMC.jpg' },
+      { name: 'KV-1', info: 'Soviet heavy tank. Nearly impenetrable at its tier. 76mm gun.', img: 'https://wiki.warthunder.com/images/thumb/a/a0/GarageImage_KV-1_ZiS-5.jpg/330px-GarageImage_KV-1_ZiS-5.jpg' },
+      { name: 'Pz.IV F2', info: 'German medium tank. Long 75mm gun with excellent penetration. Moderate armor.', img: 'https://wiki.warthunder.com/images/thumb/3/3f/GarageImage_Pz.IV_F2.jpg/330px-GarageImage_Pz.IV_F2.jpg' }
     ];
 
-    function makeButtons(list, mountId){
-      const mount = document.getElementById(mountId);
-      mount.innerHTML = '';
-      list.forEach(name => {
+    const planes = [
+      { name: 'Spitfire Mk V', info: 'British fighter. Excellent maneuverability and climb rate. Armed with 20mm cannons.', img: 'https://wiki.warthunder.com/images/thumb/5/59/GarageImage_Spitfire_Mk_Vb.jpg/330px-GarageImage_Spitfire_Mk_Vb.jpg' },
+      { name: 'Bf 109 F-4', info: 'German fighter. Great energy retention and speed. 20mm cannon and machine guns.', img: 'https://wiki.warthunder.com/images/thumb/8/8a/GarageImage_Bf_109_F-4.jpg/330px-GarageImage_Bf_109_F-4.jpg' },
+      { name: 'P-51D Mustang', info: 'American fighter. High speed and altitude performance. Six .50 cal machine guns.', img: 'https://wiki.warthunder.com/images/thumb/e/ea/GarageImage_P-51D-5.jpg/330px-GarageImage_P-51D-5.jpg' },
+      { name: 'Yak-3', info: 'Soviet fighter. Lightweight and agile. Good low-altitude performance.', img: 'https://wiki.warthunder.com/images/thumb/2/2f/GarageImage_Yak-3.jpg/330px-GarageImage_Yak-3.jpg' },
+      { name: 'Fw 190 A-5', info: 'German fighter. Heavy armament with excellent roll rate. Four 20mm cannons.', img: 'https://wiki.warthunder.com/images/thumb/5/5c/GarageImage_Fw_190_A-5.jpg/330px-GarageImage_Fw_190_A-5.jpg' },
+      { name: 'Zero A6M5', info: 'Japanese fighter. Outstanding maneuverability. Light but fragile.', img: 'https://wiki.warthunder.com/images/thumb/b/b9/GarageImage_A6M5.jpg/330px-GarageImage_A6M5.jpg' },
+      { name: 'La-5FN', info: 'Soviet fighter. Good speed and firepower. Two 20mm cannons.', img: 'https://wiki.warthunder.com/images/thumb/1/17/GarageImage_La-5FN.jpg/330px-GarageImage_La-5FN.jpg' },
+      { name: 'Corsair F4U', info: 'American carrier fighter. Fast with heavy armament. Six .50 cals.', img: 'https://wiki.warthunder.com/images/thumb/3/3a/GarageImage_F4U-1A.jpg/330px-GarageImage_F4U-1A.jpg' },
+      { name: 'Tempest Mk V', info: 'British fighter. Excellent low-altitude speed. Four 20mm cannons.', img: 'https://wiki.warthunder.com/images/thumb/9/9a/GarageImage_Tempest_Mk_V.jpg/330px-GarageImage_Tempest_Mk_V.jpg' },
+      { name: 'P-47D Thunderbolt', info: 'American fighter-bomber. Rugged with eight .50 cal guns. Heavy but fast.', img: 'https://wiki.warthunder.com/images/thumb/2/25/GarageImage_P-47D-25.jpg/330px-GarageImage_P-47D-25.jpg' }
+    ];
+
+    function createButtons(items, containerId) {
+      const container = document.getElementById(containerId);
+      items.forEach(item => {
         const btn = document.createElement('button');
         btn.className = 'item';
-        btn.textContent = name;
-        btn.addEventListener('click', () => openModal(name));
-        mount.appendChild(btn);
+        btn.textContent = item.name;
+        btn.onclick = () => openModal(item.name, item.info, item.img);
+        container.appendChild(btn);
       });
     }
 
-    const modal = document.getElementById('nameModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const closeModalBtn = document.getElementById('closeModal');
-
-    function openModal(name){
-      modalTitle.textContent = name;
-      modal.classList.add('open');
+    function openModal(title, info, img) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalInfo').textContent = info;
+      document.getElementById('modalImage').src = img;
+      document.getElementById('modal').classList.add('open');
     }
-    function closeModal(){ modal.classList.remove('open'); }
-    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-    closeModalBtn.addEventListener('click', closeModal);
 
-    // Build buttons
-    makeButtons(tanks, 'tankButtons');
-    makeButtons(planes, 'planeButtons');
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('modal').onclick = function(e) {
+      if (e.target === this) closeModal();
+    };
+
+    // Initialize
+    createButtons(tanks, 'tankButtons');
+    createButtons(planes, 'planeButtons');
   </script>
 </body>
 </html>

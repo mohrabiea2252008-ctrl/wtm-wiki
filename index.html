@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -13,166 +13,79 @@
     header h1{margin:0;font-size:1.6rem;background:linear-gradient(90deg,#ff6b6b,#f06595);-webkit-background-clip:text;background-clip:text;color:transparent}
     header p{margin:6px 0 0;color:var(--muted)}
     .container{max-width:1200px;margin:20px auto;padding:0 16px}
-    .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between}
-    .left{display:flex;gap:8px;align-items:center}
-    input.search{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02);min-width:220px;color:inherit}
-    select{padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02)}
-    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
-    @media(min-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:1200px){.grid{grid-template-columns:repeat(3,1fr)}}
-    .nation{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-    .nation-header{display:flex;align-items:center;gap:10px;cursor:pointer}
-    .nation-header h2{margin:0;font-size:1.05rem}
-    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:10px}
-    .card{background:linear-gradient(145deg,rgba(255,255,255,0.01),rgba(255,255,255,0.015));padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);transition:transform .18s}
-    .card:hover{transform:translateY(-8px)}
-    .card h3{margin:4px 0}
-    .badges{display:flex;gap:6px;flex-wrap:wrap}
-    .badge{padding:5px 8px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:0.8rem;color:var(--muted)}
-    .stats{margin-top:8px;background:rgba(0,0,0,0.2);padding:6px;border-radius:8px}
-    .stat{display:flex;justify-content:space-between;font-size:0.9rem;margin:4px 0}
-    footer{margin-top:22px;padding:12px;text-align:center;color:var(--muted)}
-    .collapse{overflow:hidden;transition:max-height .25s ease;max-height:0}
-    .collapse.open{max-height:2400px}
-    .muted{color:var(--muted)}
+    .btns{display:flex;flex-wrap:wrap;gap:10px}
+    button.item{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:#e6f2f8;border-radius:10px;padding:8px 12px;cursor:pointer}
+    button.item:hover{background:rgba(255,255,255,0.12)}
+    .section{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);margin:16px 0}
+    .section h2{margin:0 0 10px}
+    /* modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999}
+    .modal.open{display:flex}
+    .modal-card{background:var(--card);border:1px solid rgba(255,255,255,0.1);border-radius:12px;min-width:260px;max-width:90vw;padding:16px}
+    .modal-card h3{margin:0 0 8px}
+    .modal-actions{display:flex;justify-content:flex-end;margin-top:12px}
+    .close{background:#223b57;color:#e6f2f8;border:1px solid rgba(255,255,255,0.1);padding:6px 10px;border-radius:8px;cursor:pointer}
   </style>
 </head>
 <body>
   <header>
     <h1>WTM HATED FAMILY</h1>
-    <p> Testing my work .</p>
+    <p>Testing my work.</p>
   </header>
-
   <div class="container">
-    <section class="controls">
-      <div class="left">
-        <input id="search" class="search" placeholder="Search vehicle, gun, BR, role..." oninput="render()">
-        <select id="filterNation" onchange="render()"><option value="">All Nations</option></select>
-        <select id="filterClass" onchange="render()"><option value="">All Classes</option><option>Fighter</option><option>Bomber</option><option>Ground Attack</option><option>Light Tank</option><option>Medium Tank</option><option>Heavy Tank</option><option>SPAA</option><option>Tank Destroyer</option><option>MBT</option></select>
-      </div>
-      <div>
-        <select id="sortBy" onchange="render()"><option value="name">Sort: Name</option><option value="rank">Sort: Rank</option><option value="br">Sort: BR</option></select>
-        <button onclick="resetFilters()">Reset</button>
-      </div>
+    <section class="section" id="tp-section">
+      <h2>Tanks and Planes</h2>
+      <div class="btns" id="tankButtons"></div>
+      <div class="btns" id="planeButtons" style="margin-top:12px"></div>
     </section>
-
-    <main id="content" class="grid" aria-live="polite"></main>
-
-    <div id="empty" class="muted" style="margin-top:12px">No vehicles match your filters.</div>
   </div>
 
-  <footer>© 2025 War Thunder Mobile Wiki — Community Edition — Not affiliated with Gaijin Entertainment</footer>
+  <div class="modal" id="nameModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3 id="modalTitle"></h3>
+      <div class="modal-actions">
+        <button class="close" id="closeModal">Close</button>
+      </div>
+    </div>
+  </div>
 
   <script>
-    // DATA_SOURCE: set to './data/vehicles.json' to use external file
-    const DATA_SOURCE = null;
-
-    // MN2 nations (only nations that have tech trees in War Thunder Mobile at the time of this build)
-    // Based on Gaijin/War Thunder Mobile info and community sources.
-    const MN2_NATIONS = ['USA','Germany','USSR','UK','Japan','China','Italy','France','Sweden','Israel'];
-
-    // Vehicles array: only WW2 + early Cold War jets included. No modern jets (MiG-29, F-16, etc.)
-    const vehicles = [
-      // USA - Tanks
-      {id:'m4_sherman', name:'M4 Sherman', nation:'USA', rank:'III', br:3.7, class:'Medium Tank', type:'Ground', stats:{firepower:'75mm',armor:'Medium',mobility:'Good'}, play:'Versatile medium tank. Hull-down and flanking.'},
-      {id:'m24_chaffee', name:'M24 Chaffee', nation:'USA', rank:'II', br:2.0, class:'Light Tank', type:'Ground', stats:{firepower:'75mm',armor:'Light',mobility:'Excellent'}, play:'Scout and flank; avoid heavy fights.'},
-      {id:'m1_abrams', name:'M1 Abrams', nation:'USA', rank:'XIII', br:10.0, class:'MBT', type:'Ground', stats:{firepower:'120mm',armor:'Very High',mobility:'Excellent'}, play:'Modern MBT (included as top-end ground unit).'},
-      // USA - Aircraft (WW2 + early cold war)
-      {id:'p51', name:'P-51 Mustang', nation:'USA', rank:'IV', br:5.0, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'6x .50 cal',maneuver:'Good'}, play:'Boom and zoom; maintain energy.'},
-      {id:'f6f_hellcat', name:'F6F Hellcat', nation:'USA', rank:'III', br:4.3, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'6x .50 cal',maneuver:'Good'}, play:'Carrier-capable fighter; good all-round.'},
-     
-      // Germany - Tanks
-      {id:'panzer_iv', name:'Panzer IV', nation:'Germany', rank:'III', br:3.3, class:'Medium Tank', type:'Ground', stats:{firepower:'75mm',armor:'Medium',mobility:'Average'}, play:'Versatile medium support tank.'},
-      {id:'tiger_i', name:'Tiger I', nation:'Germany', rank:'IV', br:5.3, class:'Heavy Tank', type:'Ground', stats:{firepower:'88mm',armor:'Heavy',mobility:'Slow'}, play:'Long-range sniper; angle armor.'},
-      {id:'jagdpanther', name:'Jagdpanther', nation:'Germany', rank:'V', br:6.0, class:'Tank Destroyer', type:'Ground', stats:{firepower:'88mm',armor:'Heavy',mobility:'Average'}, play:'Ambush from cover.'},
-      // Germany - Aircraft
-      {id:'bf109', name:'Bf 109', nation:'Germany', rank:'III', br:3.8, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'20mm',maneuver:'Excellent'}, play:'Climb & energy fighting.'},
-      {id:'fw190', name:'Fw 190', nation:'Germany', rank:'III', br:4.3, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'20mm',maneuver:'Good'}, play:'Versatile and powerful in broad roles.'},
-
-      // USSR - Tanks
-      {id:'t34', name:'T-34', nation:'USSR', rank:'II', br:2.7, class:'Medium Tank', type:'Ground', stats:{firepower:'76mm',armor:'Sloped',mobility:'Excellent'}, play:'Flank and brawl; angle hull.'},
-      {id:'t72', name:'T-72', nation:'USSR', rank:'IX', br:9.0, class:'MBT', type:'Ground', stats:{firepower:'125mm',armor:'Heavy',mobility:'Good'}, play:'Modern MBT with autoloader.'},
-      // USSR - Aircraft
-      {id:'yak3', name:'Yak-3', nation:'USSR', rank:'III', br:3.7, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'20mm',maneuver:'Excellent'}, play:'Excellent turnfighter at low alt.'},
-      
-      // UK - Tanks / Aircraft
-      {id:'churchill', name:'Churchill', nation:'UK', rank:'III', br:3.0, class:'Heavy Tank', type:'Ground', stats:{firepower:'75mm',armor:'Heavy',mobility:'Slow'}, play:'Armored support.'},
-      {id:'spitfire', name:'Spitfire', nation:'UK', rank:'III', br:4.0, class:'Fighter', type:'Aircraft', stats:{speed:'High',armament:'20mm',maneuver:'Excellent'}, play:'Turnfighter; energy retention.'},
-      {id:'meteor_f3', name:'Gloster Meteor F.3', nation:'UK', rank:'V', br:8.8, class:'Fighter', type:'Aircraft', stats:{speed:'Transonic',armament:'20mm',maneuver:'Good'}, play:'Early jet; BVR & energy tactics.'},
-
-      // Japan
-      {id:'zero', name:'A6M Zero', nation:'Japan', rank:'II', br:3.0, class:'Fighter', type:'Aircraft', stats:{speed:'Moderate',armament:'20mm',maneuver:'Excellent'}, play:'Great turnfighter; capitalize on maneuverability.'},
-      {id:'chiha', name:'Type 90', nation:'Japan', rank:'X', br:9.3, class:'MBT', type:'Ground', stats:{firepower:'120mm',armor:'Heavy',mobility:'Good'}, play:'Modern MBT (ground only).'},
-
-      // China (PRC)
-      {id:'type59', name:'Type 59', nation:'China', rank:'VIII', br:7.3, class:'MBT', type:'Ground', stats:{firepower:'100mm',armor:'Good',mobility:'Good'}, play:'Robust medium with sloped armor.'},
-      
-
-      // France
-  
-      {id:'amx13', name:'AMX-13', nation:'France', rank:'IV', br:5.0, class:'Light Tank', type:'Ground', stats:{firepower:'75mm autoloader',armor:'Light',mobility:'Excellent'}, play:'Autoloader hit-and-run.'},
-
-      // Italy
-      {id:'m13_40', name:'Carro Armato M13/40', nation:'Italy', rank:'II', br:2.3, class:'Medium Tank', type:'Ground', stats:{firepower:'47mm',armor:'Light',mobility:'Average'}, play:'Early war Italian tank.'},
-
-      // Sweden
-      {id:'strv122', name:'Stridsvagn 122', nation:'Sweden', rank:'X', br:9.7, class:'MBT', type:'Ground', stats:{firepower:'120mm',armor:'High',mobility:'Good'}, play:'Well-armoured MBT.'},
-
-      // Israel
-      {id:'merkava1', name:'Merkava Mk.1', nation:'Israel', rank:'VIII', br:8.3, class:'MBT', type:'Ground', stats:{firepower:'105mm',armor:'High',mobility:'Good'}, play:'Designed for survivability.'}
-      , {id:'t34_1940', name:'T-34 (1940)', nation:'USSR', tier:'Tier II', class:'Medium Tank', stats:{firepower:'76mm',armor:'Sloped',mobility:'Excellent'}, playstyle:'Aggressive flanker with excellent mobility. Use sloped armor effectively.'}, {id:'kv1', name:'KV-1', nation:'USSR', tier:'Tier III', class:'Heavy Tank', stats:{firepower:'76mm',armor:'Very Heavy',mobility:'Slow'}, playstyle:'Frontline tank with exceptional armor. Push enemy positions methodically.'}, {id:'t34_85', name:'T-34-85', nation:'USSR', tier:'Tier IV', class:'Medium Tank', stats:{firepower:'85mm',armor:'Good',mobility:'Excellent'}, playstyle:'Balanced medium tank. Exploit superior speed and firepower.'}, {id:'is2', name:'IS-2', nation:'USSR', tier:'Tier V', class:'Heavy Tank', stats:{firepower:'122mm',armor:'Heavy',mobility:'Average'}, playstyle:'Heavy breakthrough tank. Use in coordinated attacks with teammates.'}, {id:'t44', name:'T-44', nation:'USSR', tier:'Tier VI', class:'Medium Tank', stats:{firepower:'100mm',armor:'Good',mobility:'Good'}, playstyle:'Armored support tank. Stay with team for maximum effectiveness.'}, {id:'t54_1949', name:'T-54 (1949)', nation:'USSR', tier:'Tier VII', class:'MBT', stats:{firepower:'100mm',armor:'Good',mobility:'Excellent'}, playstyle:'Early Cold War MBT. Reliable allrounder for various situations.'}, {id:'t72a', name:'T-72A', nation:'USSR', tier:'Tier IX', class:'MBT', stats:{firepower:'125mm',armor:'Heavy',mobility:'Good'}, playstyle:'Modern Soviet MBT with autoloader. Support heavies and flankers.'}, {id:'m4_76', name:'M4A1 (76) W', nation:'USA', tier:'Tier III', class:'Medium Tank', stats:{firepower:'76mm',armor:'Medium',mobility:'Good'}, playstyle:'Versatile medium tank with improved firepower. Good for supporting team.'}, {id:'m26_pershing', name:'M26 Pershing', nation:'USA', tier:'Tier V', class:'Heavy Tank', stats:{firepower:'90mm',armor:'Good',mobility:'Average'}, playstyle:'Armored support tank. Hull-down tactics recommended.'}, {id:'m46_patton', name:'M46 Patton', nation:'USA', tier:'Tier VI', class:'Medium Tank', stats:{firepower:'90mm',armor:'Average',mobility:'Good'}, playstyle:'Mobile medium tank. Flank enemy positions methodically.'}, {id:'m47_patton', name:'M47 Patton', nation:'USA', tier:'Tier VII', class:'MBT', stats:{firepower:'90mm',armor:'Good',mobility:'Good'}, playstyle:'Cold War medium tank. Balanced approach recommended.'}, {id:'m48_patton', name:'M48 Patton', nation:'USA', tier:'Tier VIII', class:'MBT', stats:{firepower:'90mm',armor:'Good',mobility:'Good'}, playstyle:'Versatile Cold War MBT. Multi-role platform for various tactics.'}, {id:'m60_patton', name:'M60 Patton', nation:'USA', tier:'Tier IX', class:'MBT', stats:{firepower:'105mm',armor:'Good',mobility:'Average'}, playstyle:'Late Cold War MBT. Use firepower advantage in long-range engagements.'}, {id:'panzer_iii', name:'Panzer III', nation:'Germany', tier:'Tier II', class:'Medium Tank', stats:{firepower:'37mm',armor:'Light',mobility:'Good'}, playstyle:'Early WW2 medium tank. Agile and effective at close ranges.'}, {id:'panzer_iv_f1', name:'Panzer IV F1', nation:'Germany', tier:'Tier III', class:'Medium Tank', stats:{firepower:'75mm',armor:'Medium',mobility:'Average'}, playstyle:'Classic WW2 medium tank. Jack-of-all-trades platform.'}, {id:'tiger_ii', name:'Tiger II', nation:'Germany', tier:'Tier V', class:'Heavy Tank', stats:{firepower:'88mm',armor:'Very Heavy',mobility:'Slow'}, playstyle:'Heavy breakthrough tank. Stay on ridges for armor effectiveness.'}, {id:'panther_d', name:'Panther D', nation:'Germany', tier:'Tier IV', class:'Medium Tank', stats:{firepower:'75mm',armor:'Good',mobility:'Average'}, playstyle:'Powerful medium tank. Use superior gun at range.'}, {id:'leopard_1', name:'Leopard 1', nation:'Germany', tier:'Tier VII', class:'MBT', stats:{firepower:'90mm',armor:'Light',mobility:'Excellent'}, playstyle:'Fast tank destroyer. Use superior speed for flanking attacks.'}, {id:'leopard_2av', name:'Leopard 2AV', nation:'Germany', tier:'Tier VIII', class:'MBT', stats:{firepower:'120mm',armor:'Heavy',mobility:'Good'}, playstyle:'Advanced Cold War MBT. Balanced design for all scenarios.'}, {id:'leopard_2a4', name:'Leopard 2A4', nation:'Germany', tier:'Tier IX', class:'MBT', stats:{firepower:'120mm',armor:'Excellent',mobility:'Good'}, playstyle:'Main battle tank. Reliable workhorse for coordinated gameplay.'}, {id:'cromwell', name:'Cromwell', nation:'UK', tier:'Tier IV', class:'Medium Tank', stats:{firepower:'75mm',armor:'Light',mobility:'Excellent'}, playstyle:'Fast medium tank. Use mobility for aggressive maneuvers.'}, {id:'centurion_mk5', name:'Centurion Mk.5', nation:'UK', tier:'Tier VI', class:'Medium Tank', stats:{firepower:'84mm',armor:'Good',mobility:'Average'}, playstyle:'Post-war tank. Solid allrounder for team play.'}, {id:'chieftain_mk10', name:'Chieftain Mk.10', nation:'UK', tier:'Tier VIII', class:'MBT', stats:{firepower:'120mm',armor:'Heavy',mobility:'Slow'}, playstyle:'Heavy armored tank. Suitable for defensive positions.'}, {id:'type97_chi_ha', name:'Type 97 Chi-Ha', nation:'Japan', tier:'Tier II', class:'Medium Tank', stats:{firepower:'57mm',armor:'Light',mobility:'Good'}, playstyle:'Early Japanese medium tank. Agile but fragile.'}, {id:'type90', name:'Type 90', nation:'Japan', tier:'Tier X', class:'MBT', stats:{firepower:'120mm',armor:'Excellent',mobility:'Good'}, playstyle:'Modern Japanese MBT. Advanced protection and firepower.'}, {id:'amx13', name:'AMX-13', nation:'France', tier:'Tier IV', class:'Light Tank', stats:{firepower:'75mm',armor:'Light',mobility:'Excellent'}, playstyle:'Fast light tank with autoloader. Scout and flank.'}, {id:'amx30', name:'AMX-30', nation:'France', tier:'Tier VII', class:'MBT', stats:{firepower:'105mm',armor:'Average',mobility:'Excellent'}, playstyle:'Mobile MBT. Use speed to outflank and strike from unexpected angles.'}, {id:'type59', name:'Type 59', nation:'China', tier:'Tier VIII', class:'MBT', stats:{firepower:'100mm',armor:'Good',mobility:'Good'}, playstyle:'Cold War Chinese MBT. Balanced tank for mixed engagements.'}, {id:'ztz96', name:'ZTZ 96', nation:'China', tier:'Tier VIII', class:'MBT', stats:{firepower:'120mm',armor:'Good',mobility:'Excellent'}, playstyle:'Modern Chinese tank. Emphasis on firepower and mobility.'}, {id:'m24_chaffee', name:'M24 Chaffee', nation:'USA', tier:'Tier II', class:'Light Tank', stats:{firepower:'75mm',armor:'Light',mobility:'Excellent'}, playstyle:'Fast reconnaissance tank. Scout enemy positions for team.'}, {id:'m41_walker_bulldog', name:'M41 Walker Bulldog', nation:'USA', tier:'Tier IV', class:'Light Tank', stats:{firepower:'76mm',armor:'Light',mobility:'Excellent'}, playstyle:'Aggressive light tank. Use speed for harassment.'}, {id:'sv_m42', name:'Strv m/42', nation:'Sweden', tier:'Tier III', class:'Medium Tank', stats:{firepower:'75mm',armor:'Medium',mobility:'Good'}, playstyle:'Solid Swedish medium tank. Good balance of firepower and mobility.'}, {id:'strv121', name:'Strv 121', nation:'Sweden', tier:'Tier X', class:'MBT', stats:{firepower:'120mm',armor:'Excellent',mobility:'Good'}, playstyle:'Swedish MBT variant. Reliable for frontline operations.'}, {id:'p40', name:'P40', nation:'Italy', tier:'Tier II', class:'Medium Tank', stats:{firepower:'47mm',armor:'Light',mobility:'Average'}, playstyle:'Early Italian tank. Limited but functional for low tiers.'}, {id:'merkava_mk2', name:'Merkava Mk.2', nation:'Israel', tier:'Tier VIII', class:'MBT', stats:{firepower:'105mm',armor:'Heavy',mobility:'Average'}, playstyle:'Israeli MBT. Designed for survivability and crew protection.'}, {id:'challenger_2', name:'Challenger 2', nation:'UK', tier:'Tier IX', class:'MBT', stats:{firepower:'120mm',armor:'Very Heavy',mobility:'Average'}, playstyle:'Advanced British MBT. Exceptional armor protection for role.'}
-
+    // Extracted from War Thunder Mobile Wiki snapshot on this page
+    const tanks = [
+      'Pz.IV F2','Pz.IV G','StuG III F','M4A1','T34 (1940)','KV-2','Churchill I','M4',
+      'Calliope','KV-220','Panther D','Object 120','Bkan 1C'
+    ];
+    const planes = [
+      'B-10B'
     ];
 
-    // Fetch external if configured
-    (async function init(){
-      if(DATA_SOURCE){
-        try{ const r=await fetch(DATA_SOURCE); const ext=await r.json(); if(Array.isArray(ext)) { vehicles.splice(0, vehicles.length, ...ext); } }catch(e){console.warn('external data load failed',e)}
-      }
-      buildFilters(); render();
-    })();
-
-    function unique(arr,key){ return [...new Set(arr.map(x=>x[key]||''))].filter(Boolean).sort(); }
-
-    function buildFilters(){ const nations = unique(vehicles,'nation'); const fn=document.getElementById('filterNation'); nations.forEach(n=>{ const o=document.createElement('option'); o.value=n; o.textContent=n; fn.appendChild(o); }); }
-
-    function render(){ const q=(document.getElementById('search').value||'').toLowerCase(); const fn=document.getElementById('filterNation').value; const fc=document.getElementById('filterClass').value; const sort=document.getElementById('sortBy').value;
-      let list = vehicles.filter(v=>{
-        if(fn && v.nation!==fn) return false; if(fc && v.class!==fc) return false; const hay = (v.name+' '+v.nation+' '+(v.class||'')+' '+(v.stats?Object.values(v.stats).join(' '):'')+' '+(v.play||'')).toLowerCase(); if(q && !hay.includes(q)) return false; return true;
-      });
-      if(sort==='name') list.sort((a,b)=>a.name.localeCompare(b.name)); if(sort==='rank') list.sort((a,b)=>parseRank(a.rank)-parseRank(b.rank)); if(sort==='br') list.sort((a,b)=> (a.br||0)-(b.br||0));
-
-      const byNation = {};
-      list.forEach(v=>{ (byNation[v.nation]||(byNation[v.nation]=[])).push(v); });
-      const content = document.getElementById('content'); content.innerHTML='';
-      if(list.length===0){ document.getElementById('empty').style.display='block'; } else { document.getElementById('empty').style.display='none'; }
-
-      Object.keys(byNation).sort().forEach(nation=>{
-        const sec = document.createElement('section'); sec.className='nation';
-        const header = document.createElement('div'); header.className='nation-header';
-        const h = document.createElement('h2'); h.textContent = nation + ' — ' + byNation[nation].length + ' vehicles';
-        header.appendChild(h);
-        sec.appendChild(header);
-        const wrap = document.createElement('div'); wrap.className='collapse open';
-        const cards = document.createElement('div'); cards.className='cards';
-        byNation[nation].forEach(v=>{
-          const card = document.createElement('article'); card.className='card';
-          const title = document.createElement('h3'); title.textContent = v.name;
-          const badges = document.createElement('div'); badges.className='badges'; badges.innerHTML = `<span class="badge">${v.class||''}</span><span class="badge">Rank ${v.rank||'N/A'}</span><span class="badge">BR ${v.br||'N/A'}</span>`;
-          const stats = document.createElement('div'); stats.className='stats'; if(v.stats){ for(const k in v.stats){ const row=document.createElement('div'); row.className='stat'; row.innerHTML = `<span class="muted">${k}</span><span>${v.stats[k]}</span>`; stats.appendChild(row);} }
-          const play = document.createElement('div'); play.className='muted'; play.textContent = v.play || '';
-          card.appendChild(title); card.appendChild(badges); card.appendChild(stats); card.appendChild(play);
-          cards.appendChild(card);
-        });
-        wrap.appendChild(cards); sec.appendChild(wrap);
-        header.onclick = ()=> wrap.classList.toggle('open');
-        content.appendChild(sec);
+    function makeButtons(list, mountId){
+      const mount = document.getElementById(mountId);
+      mount.innerHTML = '';
+      list.forEach(name => {
+        const btn = document.createElement('button');
+        btn.className = 'item';
+        btn.textContent = name;
+        btn.addEventListener('click', () => openModal(name));
+        mount.appendChild(btn);
       });
     }
 
-    function parseRank(r){ try{ return parseInt(String(r).replace(/[^0-9]/g,''))||0;}catch(e){return 0}}
-    function resetFilters(){ document.getElementById('search').value=''; document.getElementById('filterNation').value=''; document.getElementById('filterClass').value=''; document.getElementById('sortBy').value='name'; render(); }
+    const modal = document.getElementById('nameModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeModalBtn = document.getElementById('closeModal');
 
+    function openModal(name){
+      modalTitle.textContent = name;
+      modal.classList.add('open');
+    }
+    function closeModal(){ modal.classList.remove('open'); }
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+    closeModalBtn.addEventListener('click', closeModal);
+
+    // Build buttons
+    makeButtons(tanks, 'tankButtons');
+    makeButtons(planes, 'planeButtons');
   </script>
 </body>
 </html>

@@ -1,220 +1,1393 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>War Thunder Mobile Wiki</title>
-  <meta name="description" content="War Thunder Mobile vehicle wiki — Comprehensive tanks and planes database" />
-  <style>
-    :root {
-      --bg: #071021;
-      --card: #0f2a44;
-      --accent: #e63946;
-      --muted: #9fb6c8;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color: #e6f2f8;
-      background: linear-gradient(180deg, var(--bg), #071022);
-      min-height: 100vh;
-    }
-    header {
-      padding: 28px 18px;
-      text-align: center;
-      background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.6rem;
-      background: linear-gradient(90deg, #ff6b6b, #f06595);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    header p {
-      margin: 6px 0 0;
-      color: var(--muted);
-    }
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 16px;
-    }
-    .section {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.06);
-      margin: 16px 0;
-    }
-    .section h2 {
-      margin: 0 0 10px;
-      font-size: 1.3rem;
-    }
-    .btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    button.item {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #e6f2f8;
-      border-radius: 10px;
-      padding: 8px 12px;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-    button.item:hover {
-      background: rgba(255,255,255,0.12);
-      transform: translateY(-2px);
-      transition: all 0.2s;
-    }
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,0.7);
-      z-index: 9999;
-    }
-    .modal.open {
-      display: flex;
-    }
-    .modal-card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      min-width: 300px;
-      max-width: 90vw;
-      padding: 20px;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-    .modal-card h3 {
-      margin: 0 0 12px;
-      color: #ff6b6b;
-    }
-    .modal-card img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 8px;
-      margin: 10px 0;
-    }
-    .modal-card p {
-      line-height: 1.6;
-      color: var(--muted);
-    }
-    .modal-actions {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 16px;
-    }
-    .close {
-      background: #223b57;
-      color: #e6f2f8;
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-    .close:hover {
-      background: #2a4a6a;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>HATED FAMILY</title>
+<meta name="description" content="I WANNA KMS" />
+<style>
+  :root{
+    --bg:#071021;
+    --bg-2:#0b1620;
+    --card:#0e1b24;
+    --muted:#9fb6c8;
+    --accent:#ff6b6b;
+    --glass: rgba(255,255,255,0.03);
+    --panel:#0c151a;
+    --pill:#11222b;
+    --maxw:1200px;
+    --radius:12px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#e6f2f8;
+    background:
+      radial-gradient(800px 360px at 10% 10%, rgba(14,30,45,0.6), transparent),
+      linear-gradient(180deg,var(--bg),var(--bg-2));
+    -webkit-font-smoothing:antialiased;
+    padding:18px;display:flex;justify-content:center;
+  }
+  .wrap{max-width:var(--maxw);width:100%}
+
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0f2a33,#06202a);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03);backdrop-filter: blur(6px);}
+  .brand h1{margin:0;font-size:1.15rem;background:linear-gradient(90deg,var(--accent),#f06595);-webkit-background-clip:text;color:transparent}
+  .brand p{margin:0;color:var(--muted);font-size:0.85rem}
+
+  .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:10px;border-radius:12px;border:1px solid var(--glass);backdrop-filter: blur(6px);}
+
+  .left{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  input#search{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02);min-width:340px;color:inherit;outline:none}
+  select,button{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02);color:inherit}
+  button.primary{background: linear-gradient(90deg,var(--accent),#f06595); color:#fff; border:none; padding:8px 12px}
+
+  .nav{display:flex;gap:8px;flex-wrap:wrap}
+  .nav button{background:var(--pill);border:1px solid rgba(255,255,255,0.02);color:var(--muted);padding:8px 12px;border-radius:8px;cursor:pointer}
+  .nav button.active{background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));color:#fff;box-shadow:0 8px 24px rgba(0,0,0,0.45)}
+
+  .tiers{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .tier-pill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:600;color:var(--muted);cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
+  .tier-pill.active{color:#fff;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));}
+
+  main{margin-top:14px}
+
+  .section{margin-bottom:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:12px;border:1px solid var(--glass)}
+  .section h2{margin:0 0 6px 0}
+  .section .meta{color:var(--muted);font-size:0.9rem}
+
+  /* grid for vehicle cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+  .card{background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.007));padding:10px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.02);display:flex;gap:10px;align-items:flex-start;backdrop-filter: blur(2px);cursor:pointer;transition:transform .14s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(2,6,12,0.45)}
+  .img-wrap{width:150px;height:92px;border-radius:8px;overflow:hidden;flex-shrink:0;background:#08121a;border:1px solid rgba(255,255,255,0.02)}
+  .img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+  .card-body h3{margin:0;font-size:1rem}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .badge{padding:5px 8px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:0.78rem;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+  .statlist{margin-top:8px;background:rgba(0,0,0,0.12);padding:8px;border-radius:8px;font-size:0.9rem}
+  .stat{display:flex;justify-content:space-between;margin:4px 0;color:var(--muted);font-size:0.9rem}
+
+  .empty{padding:30px;text-align:center;color:var(--muted);border-radius:8px;background:rgba(255,255,255,0.01);}
+
+  /* popup/modal */
+  .modal-backdrop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1200;backdrop-filter: blur(6px); background: rgba(2,6,12,0.7); padding:20px; transition:opacity .22s ease;}
+  .modal-backdrop.open{display:flex;opacity:1}
+  .modal{width:min(980px,100%); max-height:calc(100vh - 80px); overflow:auto;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px; border:1px solid var(--glass);box-shadow:0 30px 80px rgba(2,6,12,0.7);display:flex; gap:18px; padding:16px; align-items:flex-start;}
+  .modal-left{flex:0 0 46%; min-width:220px}
+  .modal-left img{width:100%;height:auto;border-radius:8px;display:block}
+  .modal-right{flex:1;display:flex;flex-direction:column}
+  .modal-right h3{margin:0 0 8px 0}
+  .modal-actions{display:flex;gap:8px;align-items:center;margin-top:auto}
+  .modal-close{margin-left:auto;background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+  footer{margin-top:18px;padding:12px;text-align:center;color:var(--muted);font-size:0.85rem}
+
+  @media(max-width:720px){
+    .img-wrap{width:120px;height:72px}
+    .modal{flex-direction:column}
+    .modal-left{width:100%}
+    .modal-right{width:100%}
+  }
+</style>
 </head>
 <body>
+<div class="wrap" id="app">
   <header>
-    <h1>War Thunder Mobile Wiki</h1>
-    <p>Complete guide to tanks and planes</p>
-  </header>
-  
-  <div class="container">
-    <section class="section">
-      <h2>🚜 Tanks</h2>
-      <div class="btns" id="tankButtons"></div>
-    </section>
-    
-    <section class="section">
-      <h2>✈️ Planes</h2>
-      <div class="btns" id="planeButtons"></div>
-    </section>
-  </div>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" fill="#0d2330"/><path d="M6 15c1.5-2.5 4-4 7-4s5.5 1.5 7 4" stroke="#ff6b6b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h1>WTM HATED FAMILY</h1>
+        <p>War Thunder Mobile — Vehicle Browser (WTM-only) — Tier I–VIII</p>
+      </div>
+    </div>
 
-  <div class="modal" id="modal">
-    <div class="modal-card">
-      <h3 id="modalTitle"></h3>
-      <img id="modalImage" src="" alt="" />
-      <p id="modalInfo"></p>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="tiers" role="tablist" aria-label="Tiers">
+          <div class="tier-pill" data-tier="">All</div>
+          <div class="tier-pill" data-tier="Tier I">Tier I</div>
+          <div class="tier-pill" data-tier="Tier II">Tier II</div>
+          <div class="tier-pill" data-tier="Tier III">Tier III</div>
+          <div class="tier-pill" data-tier="Tier IV">Tier IV</div>
+          <div class="tier-pill" data-tier="Tier V">Tier V</div>
+          <div class="tier-pill" data-tier="Tier VI">Tier VI</div>
+          <div class="tier-pill" data-tier="Tier VII">Tier VII</div>
+          <div class="tier-pill" data-tier="Tier VIII">Tier VIII</div>
+          <div class="tier-pill" data-tier="Tier IX">Tier IX</div>
+          <div class="tier-pill" data-tier="Tier X">Tier X</div>
+          <div class="tier-pill" data-tier="Tier XI">Tier XI</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="controls section" role="region" aria-label="Controls">
+    <div style="display:flex;justify-content:space-between;gap:12px;align-items:center">
+      <div class="left">
+        <input id="search" placeholder="Search vehicle, BR, role, playstyle..." />
+        <div class="nav" role="navigation" aria-label="Nations" id="nationNav">
+          <!-- nations injected by JS -->
+        </div>
+        <select id="filterClass" aria-label="Class filter">
+          <option value="">All Classes</option>
+          <option>Light Tank</option>
+          <option>Medium Tank</option>
+          <option>Heavy Tank</option>
+          <option>Tank Destroyer</option>
+          <option>SPAA</option>
+          <option>MBT</option>
+          <option>Fighter</option>
+          <option>Bomber</option>
+          <option>Attack</option>
+          <option>Naval</option>
+        </select>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <select id="sortBy" aria-label="Sort">
+          <option value="name">Sort: Name</option>
+          <option value="tier">Sort: Tier</option>
+        </select>
+        <button onclick="resetFilters()">Reset</button>
+        <button class="primary" id="toggleTab" onclick="toggleTab()">Ground</button>
+      </div>
+    </div>
+  </section>
+
+  <main id="content" aria-live="polite"></main>
+  <div id="empty" class="empty" style="display:none">No vehicles match your filters.</div>
+
+  <footer>© 2025 War Thunder Mobile Wiki — Community Edition — Not affiliated with Gaijin Entertainment</footer>
+</div>
+
+<!-- Modal (single modal used for all vehicles) -->
+<div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-hidden="true" aria-modal="true">
+  <div class="modal" role="document" aria-label="Vehicle details">
+    <div class="modal-left">
+      <img id="modalImage" alt="Vehicle image" src="https://via.placeholder.com/900x506?text=Vehicle">
+    </div>
+    <div class="modal-right">
+      <h3 id="modalTitle">Vehicle Name</h3>
+      <div id="modalBadges" class="badges" aria-hidden="true"></div>
+      <div id="modalStats" class="statlist"></div>
+      <div id="modalPlay" class="play" style="margin-top:10px;color:var(--muted)"></div>
       <div class="modal-actions">
-        <button class="close" onclick="closeModal()">Close</button>
+        <button id="openWiki" class="badge">Open Wiki</button>
+        <button id="copyInfo" class="badge">Copy Info</button>
+        <button class="modal-close" id="modalClose">Close</button>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
-    const tanks = [
-      { name: 'T-34', info: 'Soviet medium tank. Good armor and mobility. 76mm gun effective against most targets.', img: 'https://wiki.warthunder.com/images/thumb/5/5e/GarageImage_T-34_1941.jpg/330px-GarageImage_T-34_1941.jpg' },
-      { name: 'Sherman M4', info: 'American medium tank. Reliable and versatile. 75mm gun with good HE rounds.', img: 'https://wiki.warthunder.com/images/thumb/e/e8/GarageImage_M4.jpg/330px-GarageImage_M4.jpg' },
-      { name: 'Tiger I', info: 'German heavy tank. Powerful 88mm gun and strong frontal armor. Slow but deadly.', img: 'https://wiki.warthunder.com/images/thumb/9/92/GarageImage_Tiger_H1.jpg/330px-GarageImage_Tiger_H1.jpg' },
-      { name: 'Panther D', info: 'German medium tank. Excellent mobility and armor slope. 75mm long gun.', img: 'https://wiki.warthunder.com/images/thumb/0/04/GarageImage_Panther_D.jpg/330px-GarageImage_Panther_D.jpg' },
-      { name: 'IS-2', info: 'Soviet heavy tank. Massive 122mm gun can one-shot most tanks. Heavy armor.', img: 'https://wiki.warthunder.com/images/thumb/c/cd/GarageImage_IS-2.jpg/330px-GarageImage_IS-2.jpg' },
-      { name: 'Churchill VII', info: 'British heavy tank. Very thick armor but slow. 75mm gun with decent penetration.', img: 'https://wiki.warthunder.com/images/thumb/f/fb/GarageImage_Churchill_VII.jpg/330px-GarageImage_Churchill_VII.jpg' },
-      { name: 'Cromwell V', info: 'British light tank. Fast and agile. Good for flanking with 75mm gun.', img: 'https://wiki.warthunder.com/images/thumb/7/78/GarageImage_Cromwell_V.jpg/330px-GarageImage_Cromwell_V.jpg' },
-      { name: 'M18 Hellcat', info: 'American tank destroyer. Extremely fast with powerful 76mm gun. Light armor.', img: 'https://wiki.warthunder.com/images/thumb/1/13/GarageImage_M18_GMC.jpg/330px-GarageImage_M18_GMC.jpg' },
-      { name: 'KV-1', info: 'Soviet heavy tank. Nearly impenetrable at its tier. 76mm gun.', img: 'https://wiki.warthunder.com/images/thumb/a/a0/GarageImage_KV-1_ZiS-5.jpg/330px-GarageImage_KV-1_ZiS-5.jpg' },
-      { name: 'Pz.IV F2', info: 'German medium tank. Long 75mm gun with excellent penetration. Moderate armor.', img: 'https://wiki.warthunder.com/images/thumb/3/3f/GarageImage_Pz.IV_F2.jpg/330px-GarageImage_Pz.IV_F2.jpg' }
-    ];
+<script>
+/* PART 1 JS scaffold
+   - vehicles array is intentionally empty here
+   - PART 2 will append the big vehicles dataset to this file (vehicles.push(...))
+   - UI will auto-render whatever is in "vehicles"
+*/
 
-    const planes = [
-      { name: 'Spitfire Mk V', info: 'British fighter. Excellent maneuverability and climb rate. Armed with 20mm cannons.', img: 'https://wiki.warthunder.com/images/thumb/5/59/GarageImage_Spitfire_Mk_Vb.jpg/330px-GarageImage_Spitfire_Mk_Vb.jpg' },
-      { name: 'Bf 109 F-4', info: 'German fighter. Great energy retention and speed. 20mm cannon and machine guns.', img: 'https://wiki.warthunder.com/images/thumb/8/8a/GarageImage_Bf_109_F-4.jpg/330px-GarageImage_Bf_109_F-4.jpg' },
-      { name: 'P-51D Mustang', info: 'American fighter. High speed and altitude performance. Six .50 cal machine guns.', img: 'https://wiki.warthunder.com/images/thumb/e/ea/GarageImage_P-51D-5.jpg/330px-GarageImage_P-51D-5.jpg' },
-      { name: 'Yak-3', info: 'Soviet fighter. Lightweight and agile. Good low-altitude performance.', img: 'https://wiki.warthunder.com/images/thumb/2/2f/GarageImage_Yak-3.jpg/330px-GarageImage_Yak-3.jpg' },
-      { name: 'Fw 190 A-5', info: 'German fighter. Heavy armament with excellent roll rate. Four 20mm cannons.', img: 'https://wiki.warthunder.com/images/thumb/5/5c/GarageImage_Fw_190_A-5.jpg/330px-GarageImage_Fw_190_A-5.jpg' },
-      { name: 'Zero A6M5', info: 'Japanese fighter. Outstanding maneuverability. Light but fragile.', img: 'https://wiki.warthunder.com/images/thumb/b/b9/GarageImage_A6M5.jpg/330px-GarageImage_A6M5.jpg' },
-      { name: 'La-5FN', info: 'Soviet fighter. Good speed and firepower. Two 20mm cannons.', img: 'https://wiki.warthunder.com/images/thumb/1/17/GarageImage_La-5FN.jpg/330px-GarageImage_La-5FN.jpg' },
-      { name: 'Corsair F4U', info: 'American carrier fighter. Fast with heavy armament. Six .50 cals.', img: 'https://wiki.warthunder.com/images/thumb/3/3a/GarageImage_F4U-1A.jpg/330px-GarageImage_F4U-1A.jpg' },
-      { name: 'Tempest Mk V', info: 'British fighter. Excellent low-altitude speed. Four 20mm cannons.', img: 'https://wiki.warthunder.com/images/thumb/9/9a/GarageImage_Tempest_Mk_V.jpg/330px-GarageImage_Tempest_Mk_V.jpg' },
-      { name: 'P-47D Thunderbolt', info: 'American fighter-bomber. Rugged with eight .50 cal guns. Heavy but fast.', img: 'https://wiki.warthunder.com/images/thumb/2/25/GarageImage_P-47D-25.jpg/330px-GarageImage_P-47D-25.jpg' }
-    ];
+const NATIONS = ['All Nations','USA','Germany','USSR','UK','Japan','China','Italy','France','Sweden','Israel','Other / Event'];
+const TIER_ORDER = ['Tier I','Tier II','Tier III','Tier IV','Tier V','Tier VI','Tier VII','Tier VIII','TierIX'];
 
-    function createButtons(items, containerId) {
-      const container = document.getElementById(containerId);
-      items.forEach(item => {
-        const btn = document.createElement('button');
-        btn.className = 'item';
-        btn.textContent = item.name;
-        btn.onclick = () => openModal(item.name, item.info, item.img);
-        container.appendChild(btn);
-      });
-    }
+/* placeholder vehicles array — PART 2 will add thousands of entries here */
+let vehicles = []; // PART 2: vehicles.push(...rows)
 
-    function openModal(title, info, img) {
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalInfo').textContent = info;
-      document.getElementById('modalImage').src = img;
-      document.getElementById('modal').classList.add('open');
-    }
+/* UI state */
+let currentTab = 'ground'; // 'ground' | 'air' | 'all'
+let currentNation = ''; // '' = all
+let currentTier = ''; // '' = all
+let currentClass = '';
+let currentQuery = '';
 
-    function closeModal() {
-      document.getElementById('modal').classList.remove('open');
-    }
-
-    // Close modal when clicking outside
-    document.getElementById('modal').onclick = function(e) {
-      if (e.target === this) closeModal();
+/* build nation navbar */
+function buildNationNav(){
+  const nav = document.getElementById('nationNav');
+  nav.innerHTML = '';
+  NATIONS.forEach((n, i)=>{
+    const btn = document.createElement('button');
+    btn.textContent = n;
+    btn.dataset.nation = n==='All Nations' ? '' : n;
+    if(i===0) btn.classList.add('active');
+    btn.onclick = ()=>{
+      document.querySelectorAll('#nationNav button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      currentNation = btn.dataset.nation;
+      render();
     };
+    nav.appendChild(btn);
+  });
+}
 
-    // Initialize
-    createButtons(tanks, 'tankButtons');
-    createButtons(planes, 'planeButtons');
-  </script>
+/* tier pills */
+document.querySelectorAll('.tier-pill').forEach(p=>{
+  p.addEventListener('click', ()=>{
+    document.querySelectorAll('.tier-pill').forEach(x=>x.classList.remove('active'));
+    p.classList.add('active');
+    currentTier = p.dataset.tier || '';
+    render();
+  });
+});
+
+/* search */
+document.getElementById('search').addEventListener('input', (e)=>{
+  currentQuery = e.target.value.trim().toLowerCase();
+  render();
+});
+
+/* class filter */
+document.getElementById('filterClass').addEventListener('change', (e)=>{
+  currentClass = e.target.value;
+  render();
+});
+
+/* sort */
+document.getElementById('sortBy').addEventListener('change', (e)=>{
+  render();
+});
+
+/* toggle tabs (ground/air/all) */
+function toggleTab(){
+  if(currentTab === 'ground') currentTab = 'all';
+  else if(currentTab==='all') currentTab='air';
+  else currentTab='ground';
+  document.getElementById('toggleTab').textContent = currentTab.charAt(0).toUpperCase() + currentTab.slice(1);
+  render();
+}
+
+/* reset */
+function resetFilters(){
+  document.getElementById('search').value = '';
+  document.getElementById('filterClass').value = '';
+  document.getElementById('sortBy').value = 'name';
+  document.querySelectorAll('#nationNav button').forEach((b,i)=>{ b.classList.toggle('active', i===0); });
+  document.querySelectorAll('.tier-pill').forEach(p=>p.classList.remove('active'));
+  currentNation = '';
+  currentTier = '';
+  currentClass = '';
+  currentQuery = '';
+  currentTab='ground';
+  document.getElementById('toggleTab').textContent='Ground';
+  render();
+}
+
+/* render function (reads vehicles array) */
+function render(){
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+  let list = vehicles.filter(v=>{
+    if(currentTab==='ground' && v.type && v.type!=='Ground' && v.type!=='Land') return false;
+    if(currentTab==='air' && v.type && v.type!=='Air') return false;
+    if(currentNation && v.nation !== currentNation) return false;
+    if(currentClass && v.class !== currentClass) return false;
+    if(currentTier && v.tier !== currentTier) return false;
+    if(currentQuery){
+      const hay = (v.name + ' ' + v.nation + ' ' + (v.class||'') + ' ' + (v.tier||'') + ' ' + (v.play||'')).toLowerCase();
+      if(!hay.includes(currentQuery)) return false;
+    }
+    return true;
+  });
+
+  const sort = document.getElementById('sortBy').value;
+  if(sort === 'name') list.sort((a,b)=>a.name.localeCompare(b.name));
+  if(sort === 'tier') list.sort((a,b)=> (TIER_ORDER.indexOf(a.tier)||0) - (TIER_ORDER.indexOf(b.tier)||0) );
+
+  if(list.length === 0){
+    document.getElementById('empty').style.display='block';
+    return;
+  } else {
+    document.getElementById('empty').style.display='none';
+  }
+
+  // group by nation (ordered)
+  const byNation = {};
+  list.forEach(v=>{ (byNation[v.nation]||(byNation[v.nation]=[])).push(v); });
+
+  const ordered = Object.keys(byNation).sort((a,b)=>{
+    const ia = NATIONS.indexOf(a)!==-1?NATIONS.indexOf(a):999;
+    const ib = NATIONS.indexOf(b)!==-1?NATIONS.indexOf(b):999;
+    return ia-ib;
+  });
+
+  ordered.forEach(nation=>{
+    const sec = document.createElement('section');
+    sec.className = 'section';
+    const h = document.createElement('h2'); h.textContent = nation;
+    const meta = document.createElement('div'); meta.className='meta'; meta.textContent = `${byNation[nation].length} vehicles`;
+    sec.appendChild(h); sec.appendChild(meta);
+
+    const cards = document.createElement('div'); cards.className='cards';
+    byNation[nation].forEach(v=>{
+      const c = document.createElement('article'); c.className='card'; c.tabIndex=0;
+      c.onclick = ()=> openModal(v.id);
+      const iw = document.createElement('div'); iw.className='img-wrap';
+      const img = document.createElement('img'); img.loading='lazy'; img.src = v.image || `https://via.placeholder.com/900x506?text=${encodeURIComponent(v.name)}`; img.alt=v.name;
+      iw.appendChild(img);
+      const body = document.createElement('div'); body.className='card-body';
+      const title = document.createElement('h3'); title.textContent = v.name;
+      const badges = document.createElement('div'); badges.className='badges';
+      const b1 = document.createElement('div'); b1.className='badge'; b1.textContent = v.class || '';
+      const b2 = document.createElement('div'); b2.className='badge'; b2.textContent = v.tier || '';
+      const b3 = document.createElement('div'); b3.className='badge'; b3.textContent = v.br ? 'BR ' + v.br : '';
+      badges.appendChild(b1); badges.appendChild(b2); badges.appendChild(b3);
+      if(v.premium){ const p = document.createElement('div'); p.className='badge'; p.textContent='Premium'; badges.appendChild(p); }
+      if(v.event){ const e = document.createElement('div'); e.className='badge'; e.textContent='Event'; badges.appendChild(e); }
+
+      const statlist = document.createElement('div'); statlist.className='statlist';
+      if(v.stats){
+        for(const k in v.stats){
+          const row = document.createElement('div'); row.className='stat';
+          const kspan = document.createElement('span'); kspan.textContent = k; kspan.style.color = 'var(--muted)';
+          const vspan = document.createElement('span'); vspan.textContent = v.stats[k];
+          row.appendChild(kspan); row.appendChild(vspan); statlist.appendChild(row);
+        }
+      }
+
+      const play = document.createElement('div'); play.className='play'; play.style.color='var(--muted)'; play.style.marginTop='8px';
+      play.textContent = v.play ? (v.play.length>140 ? v.play.slice(0,140)+'…' : v.play) : '';
+
+      body.appendChild(title); body.appendChild(badges); body.appendChild(statlist); body.appendChild(play);
+      c.appendChild(iw); c.appendChild(body);
+      cards.appendChild(c);
+    });
+
+    sec.appendChild(cards);
+    content.appendChild(sec);
+  });
+}
+
+/* modal */
+const modalBackdrop = document.getElementById('modalBackdrop');
+const modalImage = document.getElementById('modalImage');
+const modalTitle = document.getElementById('modalTitle');
+const modalBadges = document.getElementById('modalBadges');
+const modalStats = document.getElementById('modalStats');
+const modalPlay = document.getElementById('modalPlay');
+const openWiki = document.getElementById('openWiki');
+const copyInfo = document.getElementById('copyInfo');
+const modalClose = document.getElementById('modalClose');
+
+function openModal(id){
+  const v = vehicles.find(x=>x.id===id);
+  if(!v) return;
+  modalImage.src = v.image || `https://via.placeholder.com/900x506?text=${encodeURIComponent(v.name)}`;
+  modalTitle.textContent = `${v.name} — ${v.nation}`;
+  modalBadges.innerHTML = '';
+  modalBadges.appendChild(createBadge(v.class||''));
+  modalBadges.appendChild(createBadge(v.tier||''));
+  modalBadges.appendChild(createBadge(v.br ? 'BR ' + v.br : 'BR N/A'));
+  if(v.premium){ modalBadges.appendChild(createBadge('Premium'));}
+  if(v.event){ modalBadges.appendChild(createBadge('Event'));}
+  modalStats.innerHTML = '';
+  if(v.stats){
+    for(const k in v.stats){
+      const row=document.createElement('div'); row.className='stat';
+      const kspan=document.createElement('span'); kspan.textContent=k; kspan.style.color='var(--muted)';
+      const vspan=document.createElement('span'); vspan.textContent=v.stats[k];
+      row.appendChild(kspan); row.appendChild(vspan); modalStats.appendChild(row);
+    }
+  }
+  modalPlay.textContent = v.play || '';
+  openWiki.onclick = ()=> {
+    const q = encodeURIComponent((v.name + ' ' + v.nation + ' War Thunder Mobile').trim());
+    window.open('https://wtmobile.fandom.com/wiki/Special:Search?search=' + q, '_blank');
+  };
+  copyInfo.onclick = ()=> {
+    const text = `${v.name} — ${v.nation}\nTier: ${v.tier}\nBR: ${v.br}\nClass: ${v.class}\nStats: ${Object.entries(v.stats||{}).map(e=>e[0]+': '+e[1]).join(' • ')}\nPlaystyle: ${v.play||''}`;
+    navigator.clipboard && navigator.clipboard.writeText(text).then(()=>{ copyInfo.textContent='Copied'; setTimeout(()=>copyInfo.textContent='Copy Info',1200); }).catch(()=>{ alert('Copy failed — clipboard access blocked.'); });
+  };
+  modalBackdrop.classList.add('open');
+  modalBackdrop.setAttribute('aria-hidden','false');
+}
+
+function createBadge(text){ const el=document.createElement('div'); el.className='badge'; el.textContent=text; return el; }
+function closeModal(){ modalBackdrop.classList.remove('open'); modalBackdrop.setAttribute('aria-hidden','true'); }
+modalClose.addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) closeModal(); });
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+
+/* init */
+(function init(){
+  buildNationNav();
+  render(); // empty until PART 2 pushes data
+})();
+</script>
 </body>
 </html>
+<!-- ===========================
+     PART 2-A: USA — TIER I (WTM-only)
+     Append this script after the vehicles = [] definition
+     =========================== -->
+<script>
+/* USA — Tier I vehicles (WTM verified platoon entries)
+   Format fields:
+   id, name, nation, tier, br (optional), class, type, stats (object), play (long), weakspots (ASCII + text), ammo (advice), howToKill, image, premium, event
+*/
+
+vehicles.push(
+  {
+    id: 'usa_m4a1_sherman_t1',
+    name: 'M4A1 Sherman',
+    nation: 'USA',
+    tier: 'Tier I',
+    br: 1.0,
+    class: 'Medium Tank',
+    type: 'Ground',
+    stats: {
+      main_gun: '75 mm M3 (various mountings)',
+      armor: 'Sloped frontal plates, thin by later standards; decent turret for Tier I',
+      mobility: 'Good acceleration and reliable mobility across terrain',
+      survivability: 'Average for Tier I — can take a few hits if angled correctly'
+    },
+    image: 'https://via.placeholder.com/900x506?text=M4A1+Sherman',
+    premium: false,
+    event: false,
+    ammo: "Primary shells: AP / APHE. Use APHE vs soft targets and to damage modules; AP works for clean penetrations at short/medium ranges. HE not recommended unless against very light targets or modules.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M4A1 Sherman)
+     [  Turret  ]
+    [  ░░CUPOLA░░ ]  <- commander cupola (easy penetration from top/45°)
+    [  ░ MANTLET ░ ]  <- mantlet can be weak on some angles; high-explosive shells or APHE here cause spalling
+       [ UPPER HULL ]
+     [ /  UPPER PLATE \\ ]  <- aim for lower corner or driver port
+         [ LOWER PLATE ] <- weaker, but often sloped; use flat hits if possible
+
+Notes: Aim for the side/rear of the turret and the lower hull plate. Cupolas and machine-gun ports are reliable module/crew hits.`,
+    play: `Playstyle (Long): The M4A1 is a versatile early-medium that rewards measured aggression and positioning. At Tier I it functions as a reliable backbone of a platoon — not the fastest flanker but stable and flexible. Start engagements by taking medium-range positions supporting light scouts: your 75 mm gun can reliably punch through most early Tier I light and medium tanks' sides. Use hull-down where terrain permits — the Sherman’s turret and sloped upper front are more survivable if you expose only the turret. When flanking, target the side and rear plates; use APHE for internal module damage (engine, ammo) when facing angled armor. Avoid exposing broadside to high-velocity enemy TDs; instead, bait shots and punish their lower plates and rear. In city maps, use building corners to peek and quickly reposition — Shermans excel in short, accurate bursts. Equip repairs and optics if available, since maintaining mobility and situational awareness is critical. In platoon play, act as the second-line: take initial hits for lighter scouts and trade with similarly tiered opponents. Remember that the M4A1 is not invulnerable — choose angles and keep moving after each shot to reduce return-fire risk.`,
+    howToKill: `How to Kill the M4A1:
+- Shoot the turret cupola or the mantlet from a flanking position to cause crew or module damage.
+- Aim for the lower glacis or track area to immobilize; once tracked, finish with a side shot to the hull or engine deck.
+- APHE rounds work best to start fires or detonate ammo racks when you can't overmatch armor.
+- Use HE rounds at very close range to disable modules if AP penetration is marginal.`,
+    meta: 'Tier I platoon main medium; flexible support',
+  },
+
+  {
+    id: 'usa_m10_wolverine_t1',
+    name: 'M10 Wolverine (GMC)',
+    nation: 'USA',
+    tier: 'Tier I',
+    br: 1.0,
+    class: 'Tank Destroyer',
+    type: 'Ground',
+    stats: {
+      main_gun: '3-inch Gun M7 (76.2 mm equivalent) — high velocity for Tier I',
+      armor: 'Open-topped turret, thin hull; very vulnerable from above and to HE',
+      mobility: 'Good mobility on roads; decent cross-country',
+      survivability: 'Low armor—survive by concealment and hull-down from sides'
+    },
+    image: 'https://via.placeholder.com/900x506?text=M10+Wolverine',
+    premium: false,
+    event: false,
+    ammo: "Shells: APCBC/APCR where available, APHE. Use APCR against heavily sloped targets or well-angled fronts; APHE is good vs soft targets and to start fires. Avoid relying on HE for kills unless you aim at module clusters.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M10 Wolverine)
+      [ OPEN TOP TURRET ]  <- crew exposed to artillery/air and HE
+    [ TURRET RING (EXPOSED) ]
+       [ UPPER HULL ]
+     [ || LOWER GLACIS || ]  <- thin lower plate—track it or hit here
+Notes: The open-top makes modules and crew easy to kill with HE and artillery; avoid close-range trade if enemy has HE or air support.`,
+    play: `Playstyle (Long): The M10 Wolverine is a classic ambush TD: use concealment, long sightlines, and your gun's high muzzle velocity to snipe enemy medium tanks and support pushes. At Tier I you can out-range most light tanks; look for hull-down ridgelines and choke points where you can fire at the flank or rear as enemies cross. Never expose your open turret directly to enemy fire—this vehicle's survivability depends almost entirely on angling and distance. When flanking, engage from the side and aim for engine decks, fuel tanks, or the lower hull to immobilize. If forced into close combat, dodge and relocate—your armor doesn't withstand direct hits. In team play, pair with a mobile light tank (Chaffee) to spot while you deliver high-delta-velocity hits. Use smoke if you must cross open ground, and avoid arching shots that expose your deck to high-angle fire.`,
+    howToKill: `How to Kill the M10:
+- Force it to reposition by pressuring its flanks; then close distance and attack its weak hull sides.
+- HE and arty are very effective against the open-top turret—aim for the deck or crew compartment.
+- Autocannons and aircraft strafes will strip crew/HP quickly; coordinate with teammates to suppress before finishing with AP.`,
+    meta: 'High-alpha/long-range TD — glass cannon; stay hidden',
+  },
+
+  {
+    id: 'usa_m24_chaffee_t1',
+    name: 'M24 Chaffee',
+    nation: 'USA',
+    tier: 'Tier I',
+    br: 1.0,
+    class: 'Light Tank',
+    type: 'Ground',
+    stats: {
+      main_gun: '75 mm M6 — good rate of fire for Tier I',
+      armor: 'Very light; sloped turret but thin hull',
+      mobility: 'Excellent mobility and acceleration, exceptional reverse speed for repositioning',
+      survivability: 'Low HP and thin armor — relies on stealth and movement'
+    },
+    image: 'https://via.placeholder.com/900x506?text=M24+Chaffee',
+    premium: false,
+    event: false,
+    ammo: "Shells: AP, APHE. Use APHE or high-velocity AP when engaging early-mediums at flank angles. Use AP against lightly armored cars. HE for module hits at very close range.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M24 Chaffee)
+       [  TURRET  ]
+     [ ░ CUPOLA ░ ]  <- cupola is vulnerable
+     [ ░ TURRET RING ░ ]  <- kills often disable turret
+       [ UPPER HULL ]
+     [ LOWER PLATE ] <- aim here for consistent penetrations
+Notes: Side and rear penetrations are easy; don't trade with high-velocity guns. Use speed to avoid corner fights.`,
+    play: `Playstyle (Long): The M24 Chaffee is a top-tier light scout at Tier I — your value comes from spotting, harassment, and module damage rather than heavy alpha. Start each match by rushing a scouting position with good sightlines and multiple escape routes; your aim is to spot enemy movements and to pull attention off heavier allies. Use hull-down peeks on ridges and take carefully aimed shots at exposed sides and rears — aim for tracks to immobilize priority targets. In urban maps, use alleyways and flank lanes to ambush medium tanks by hitting engine decks or side plates. Avoid head-on fights with guns that outrange you; when pressured, use your superior mobility to disengage and relocate. In squad play, act as the eyes of the team and cap contestor. Equip modules that increase view range and engine repair to maximize uptime. If you score a shot on a medium, don't linger—relocate to avoid return fire or enemy TD flanks.`,
+    howToKill: `How to Kill the M24:
+- Most weapons will penetrate — aim for the turret ring or lower hull for immediate kills.
+- Track it with autocannons or track hits, then finish with AP to the flanks.
+- Use artillery or aircraft strafes to flush it out of cover; once stationary it dies quickly.`,
+    meta: 'Light recon and harasser — mobility wins',
+  },
+
+  {
+    id: 'usa_m16_mgmc_t1',
+    name: 'M16 MGMC',
+    nation: 'USA',
+    tier: 'Tier I',
+    br: 1.0,
+    class: 'SPAA',
+    type: 'Ground',
+    stats: {
+      main_gun: 'Quad .50 cal M2 Browning AA mounts (anti-air autocannon)',
+      armor: 'Very light; open-top turret in many configs',
+      mobility: 'Wheeled / tracked variants; decent mobility for repositioning',
+      survivability: 'Low hull protection; excels when kept behind cover and paired with teammates'
+    },
+    image: 'https://via.placeholder.com/900x506?text=M16+MGMC',
+    premium: false,
+    event: false,
+    ammo: "Belts: High-Explosive Incendiary (HEI) / API (armor-piercing incendiary). For ground engagements, AP/ballistic belts can damage modules and crews. Use HEI or tracer belts to set fires on exposed engine decks.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M16 MGMC)
+     [ QUAD .50CAL TOP ]  <- open mount — crew exposed
+    [  LIGHT HULL  ]  <- vulnerable sides and engine
+Notes: Best used against planes and soft ground targets; heavy tanks will easily dismiss it.`,
+    play: `Playstyle (Long): The M16 MGMC is primarily an anti-air support vehicle and a short-range suppression platform. Use it to protect cap points and forward scouts from strafing aircraft while providing light ground support against unarmored or lightly armored vehicles. Position it just behind a ridge or in flanking bushes where its .50 cals can see the sky and the immediate ground around caps. Against ground targets, use concentrated bursts aimed at external modules (radiators, ammo racks) — the sustained fire can shred crew and start fires on exposed engine decks of light tanks and armored cars. Avoid fighting heavy frontal engagements; if enemy tanks get close, relocate or hide behind a sturdy teammate. In coordinated teams, your presence forces enemy pilots to be cautious and enables freer movement for your medium and heavy tanks.`,
+    howToKill: `How to Kill the M16 MGMC:
+- It is fragile — any decent AP shell will kill it. Approach from flank and use high-penetration rounds.
+- Aircraft: Use fighter or rocket strafes to destroy quickly.
+- Tanks should simply use HP-focused shots at hull or engine deck — no fancy tactics required.`,
+    meta: 'Early-SPAA — map control and air denial'
+  }
+);
+
+// After injecting Tier I vehicles, re-render UI
+render();
+</script>
+<!-- ======= USA — PART 2-B: TIER III → TIER V (Tanks Only) ======= -->
+<script>
+vehicles.push(
+  /* ---------------------------
+     TIER III
+     --------------------------- */
+  {
+    id: 'usa_m4a3e8_sherman_easy8_t3',
+    name: 'M4A3E8 "Easy Eight"',
+    nation: 'USA',
+    tier: 'Tier III',
+    br: 3.7,
+    class: 'Medium Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M4A3E8+Easy+Eight',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '76 mm M1A1 — improved velocity & stabilization',
+      armor: 'Improved suspension; sloped frontal hull; turret moderate protection',
+      mobility: 'Good mobility and traverse; reliable in cross-country',
+      survivability: 'Average — use angling and hull-down'
+    },
+    ammo: "AP, APCR (if available), APHE. Use APCR to defeat sloped fronts at long range; APHE for module damage. Keep standard AP for general engagements.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M4A3E8)
+      [  TURRET  ]
+     [ ░ CUPOLA ░ ]  <- vulnerable to 45° hits
+     [ ░ MANTLET ░ ]  <- mantlet can be hit with APCR
+        [ UPPER HULL ]
+     [ \\ LOWER GLA CIS // ] <- lower glacis is a common penetration point
+
+Notes: Work the flanks and use hull-down when possible; hit cupola or lower glacis for reliable kills.`,
+    play: `Playstyle (Long): The Easy Eight is a quintessential mid-tier US medium: well-balanced, mobile, and forgiving. Use it as a flanker/support tank: poke from hull-down positions to exploit the effective turret and targeted penetration using APCR when facing sloped German hulls. In city maps, use short bursts aiming for side plates and turret ring; in open maps, apply accurate long shots to weaker turrets or lower front plates. Prioritize mobility upgrades and stabilization to maximize follow-up shot potential. Avoid being baited into slow head-on slugfests with late-war heavies — instead, force side shots and coordinate with TDs. In platoon play, play the middle lane, support cap pushes, and trade shots only when you have positional advantage.`,
+    howToKill: `How to Kill the Easy Eight:
+- Use high-velocity APCR rounds at long range to negate slope.
+- Aim for the lower glacis or side armor when flanking.
+- Target the turret ring/cupola to disable the gun and lead to kills.`,
+    meta: 'Reliable mid-tier medium with strong gun handling; flanker/second-line'
+  },
+
+  {
+    id: 'usa_m18_hellcat_t3',
+    name: 'M18 Hellcat',
+    nation: 'USA',
+    tier: 'Tier III',
+    br: 3.3,
+    class: 'Tank Destroyer',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M18+Hellcat',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '76 mm M1A1 — high velocity for a TD',
+      armor: 'Very light; thin turret shield and open bustle in many configs',
+      mobility: 'Exceptional top speed and traverse — one of the fastest tracked tanks',
+      survivability: 'Very low armor; live by speed and position'
+    },
+    ammo: "AP, APCR. Use APCR for overmatch or heavy slope; AP good for most flanks at close range. HE rarely useful except module damage at point-blank.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M18 Hellcat)
+      [  TURRET (EXPOSED) ] <- thin, open bustle vulnerable to HE
+      [  TURRET RING  ] <- disable turret with ring hits
+      [  LOWER HULL  ] <- flank to hit lower plate or engine deck
+Notes: Speed is your protection; don't brawl.`,
+    play: `Playstyle (Long): The M18 Hellcat is pure hit-and-run TD gameplay: take hull-down ambush positions, trade one shot, and relocate before enemy TDs or mediums can return a kill shot. Use high-speed routes to get into flanking lanes and exploit rear/side armor. Avoid prolonged trades and never expose your broadside. In urban maps, use quick peeks from corners; in open maps, use speed to dictate engagements and find isolated targets. When engaging heavier tanks, aim for the engine deck or side plates and back away immediately. Sync with scouts to push exposed enemies into your killzone.`,
+    howToKill: `How to Kill the Hellcat:
+- Keep pressure and force it to relocate; when it moves, chase with a faster vehicle or use aircraft to pin it down.
+- Use HE to kill crew through the thin turret; track it to stop escape.`,
+    meta: 'Very fast TD; best in flanking, ambush, and hit-and-run roles'
+  },
+
+  {
+    id: 'usa_m36_jackson_t3',
+    name: 'M36 Jackson',
+    nation: 'USA',
+    tier: 'Tier III',
+    br: 4.0,
+    class: 'Tank Destroyer',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M36+Jackson',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '90 mm M3 — large caliber with high penetration',
+      armor: 'Thin turret and open-top bustle on some variants; frontal hull moderate',
+      mobility: 'Decent mobility for a TD',
+      survivability: 'Low armor — rely on gun and positioning'
+    },
+    ammo: "AP, APHE, APCBC. Use APHE/APCBC against armored targets; 90mm gives reliable pen across most mid-tier opponents. HE for modules when pen is insufficient.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M36 Jackson)
+      [  LARGE 90mm TURRET ]
+      [ ░ TURRET RING ░ ] <- vulnerable ring; aim for cupola/side
+      [  UPPER HULL  ]
+      [  LOWER PLATE  ] <- flank for lower hull shots
+Notes: Keep distance if possible; 90mm can one-shot many targets if you hit crew or ammo.`,
+    play: `Playstyle (Long): The M36 is a powerhouse TD for Tier III: use its 90mm to snipe and delete enemy mediums and some heavies when you land solid hits. Take hull-down positions and use the gun’s high alpha to cripple opponents. You must avoid close-range brawls due to thin turret protection: stay behind teammates or in covered ridgelines. Pair with scouts that can spot angles and call targets. When engaging, aim for turret rings, engine decks, and ammo compartments for instant results. Conserve ammunition and reposition after each kill to avoid counter-snipers.`,
+    howToKill: `How to Kill the M36:
+- Close distance and force a quick reaction; its thin turret will fail at close angles.
+- Use HE and autocannons to suppress crew in open-top areas; flank to hit lower hull.`,
+    meta: 'High-alpha sniper TD — room for positional play and ambush'
+  },
+
+  /* ---------------------------
+     TIER IV
+     --------------------------- */
+  {
+    id: 'usa_cromwell_t4',
+    name: 'Cromwell (US variant listed per WTM if present)',
+    nation: 'USA',
+    tier: 'Tier IV',
+    br: 4.5,
+    class: 'Medium Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=Cromwell',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '75 mm high-velocity gun — good rate of fire and handling',
+      armor: 'Light to moderate for Tier IV; good mobility',
+      mobility: 'Excellent mobility & climb; one of the better flanking mediums',
+      survivability: 'Moderate; relies on mobility and angling'
+    },
+    ammo: "APCR/APHE depending on enemy; use APCR vs sloped heavy armor and APHE for module starts. Keep HE as last resort for modules.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (Cromwell)
+      [  TURRET  ]
+     [ ░ CUPOLA ░ ] <- vulnerable spot
+     [ UPPER HULL ]
+     [ LOWER GLACIS ] <- flank or aim lower for reliable pen
+Notes: Use speed to dictate engagements, avoid trading with heavier frontal-armored MBTs.`,
+    play: `Playstyle (Long): The Cromwell is a fast-reaction medium: use it to outflank, spot gaps, and take objectives rapidly. Exploit its mobility to engage weak rear and side plates. In combined arms, the Cromwell can harass slower heavies and force them off angles; don't try to trade in front of high-pen guns. Favor gun handling and traverse upgrades to hit quick follow-ups. In city maps use short peeks and rapid relocations; in open maps, drive circles around slower tanks and punish their rear armor.`,
+    howToKill: `How to Kill the Cromwell:
+- Hold angles and punish flank attempts with pre-aimed shots.
+- Use HEAT or APCR to win slugging matches if necessary.`,
+    meta: 'Fast flanker medium; tempo play'
+  },
+
+  {
+    id: 'usa_m4a3e2_jumbo_t4',
+    name: 'M4A3E2 "Jumbo"',
+    nation: 'USA',
+    tier: 'Tier IV',
+    br: 4.7,
+    class: 'Heavy Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M4A3E2+Jumbo',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '75 mm or 76 mm variants; excellent gun handling',
+      armor: 'Thickened frontal armor and heavy hull plates for early-mid tiers',
+      mobility: 'Slower than mediums but adequate',
+      survivability: 'High frontal protection for Tier IV; can frontline if positioned'
+    },
+    ammo: "AP/APHE primarily. APHE can damage internal modules and cause fires; AP is good for clean pens at medium ranges.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M4A3E2 Jumbo)
+      [ HEAVY TURRET ]
+     [ ░ MANTLET ░ ] <- mantlet can be damaged with precise AP
+     [ UPPER HULL ] 
+     [ LOWER GLACIS ] <- still a target for high-velocity guns
+Notes: Jumbo is excellent brawler in mid tiers; trade frontal shots carefully and use angling.`,
+    play: `Playstyle (Long): The Jumbo is a brawler: take and hold positions, use your thick frontal plates to bully mediums and TDs when you can force them into suboptimal angles. In city fights, lock down choke points and trade with smaller tanks; in open maps, use hull-down and support flanking elements. Maintain situational awareness because the Jumbo’s slower speed makes it vulnerable to fast TDs and flankers.`,
+    howToKill: `How to Kill the Jumbo:
+- Use APCR or high-velocity shells to attack the lower glacis; flank to hit softer side armor.
+- Aim for the turret ring or engine deck if you can get lateral shots.`,
+    meta: 'Frontline brawler — anchor point on pushes'
+  },
+
+  {
+    id: 'usa_m18_hellcat_t4_duplicate', // if another config exists
+    name: 'M18 Hellcat (late config)',
+    nation: 'USA',
+    tier: 'Tier IV',
+    br: 5.0,
+    class: 'Tank Destroyer',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M18+Hellcat+Late',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '76 mm variants; maintain high mobility',
+      armor: 'Thin; largely same design philosophy',
+      mobility: 'Very high speed',
+    },
+    ammo: "AP/APCR mainly; keep range advantage and pick shots.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M18 Hellcat - late)
+      [ TURRET (thin) ]
+      [ LOWER HULL ] <- flank to disable
+Notes: Late configs may include minor upgrades but remain fragile.`,
+    play: `Playstyle (Long): Similar to Tier III Hellcat — speed and ambush doctrine. Use mobility to dictate terms and avoid exposure to heavy return fire.`,
+    howToKill: `How to Kill: Flank it; use HE or AP to kill exposed crew.`,
+    meta: 'Fast TD — ambusher'
+  },
+
+  /* ---------------------------
+     TIER V
+     --------------------------- */
+  {
+    id: 'usa_m26_pershing_t5',
+    name: 'M26 Pershing',
+    nation: 'USA',
+    tier: 'Tier V',
+    br: 5.7,
+    class: 'Heavy Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M26+Pershing',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '90 mm M3 — heavy-hitting, good APHE',
+      armor: 'Improved frontal armor and turret; better survivability vs earlier tiers',
+      mobility: 'Moderate — heavier but still mobile enough for flanking maneuvers',
+      survivability: 'Good for Tier V; withstands many medium-tier hits when angled correctly'
+    },
+    ammo: "AP, APHE, APCR. Use APHE for module/crew damage; APCR useful vs very sloped late-war armor. Keep premium rounds for overmatching tough angles.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M26 Pershing)
+      [  TURRET  ]
+     [ ░ CUPOLA ░ ] <- cupola remains a target
+     [  MANTLET  ] <- mantlet and gun cradle can be damaged
+     [ LOWER GLA CIS ] <- favour flank shots to hit side hull
+
+Notes: Pershing bridges medium/heavy gameplay and requires good angling.`,
+    play: `Playstyle (Long): The Pershing is a flexible heavy — combine hull-down positioning with mobility to flank later-war vehicles. Use its 90mm to penetrate most contemporaries at range; when pressured, trade using angling and turret cover. In city fights the Pershing can bully mediums and survive TD shots if well angled. Crew placement and module awareness are key: avoid showing rear plates and rotate to repair quickly after hits. In team play, hold second-line positions to support advances and protect more vulnerable TDs.`,
+    howToKill: `How to Kill the Pershing:
+- Aim at the turret ring or cupola to disable gun operation.
+- Use APCR or HEAT (if available) to defeat sloped mantlet/armor at distance.
+- Flank and hit side/rear to cause rapid module/engine damage.`,
+    meta: 'Postwar-heavy; good balance of firepower and protection'
+  },
+
+  {
+    id: 'usa_m4a3e8_sherman_firefly_t5_variant',
+    name: 'M4A3E8 (76)W / Firefly-like configs (if WTM variant)',
+    nation: 'USA',
+    tier: 'Tier V',
+    br: 5.0,
+    class: 'Medium Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M4A3E8+76',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '76 mm high-velocity or upgraded 17-pdr-like in allied variants',
+      armor: 'Medium sloped frontal armor',
+      mobility: 'Good mobility for medium class',
+    },
+    ammo: "AP, APCR, APHE depending on variant. Use premium/APCR to counter heavy sloped faces.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M4A3E8 76)
+      [ TURRET ]
+      [ UPPER HULL ]
+      [ LOWER PLATE ]
+
+Notes: Variants may alter playstyle slightly; treat as a high-performing medium.`,
+    play: `Playstyle (Long): Use as a high-accuracy medium at mid-range. Rely on barrel stabilization and follow-up shots to kill. Flank when necessary and keep covering fire for your TDs.`,
+    howToKill: `How to Kill: Outrange with better pen rounds, or flank for side/rear shots.`,
+    meta: 'Versatile mid-tier medium; good all-rounder'
+  }
+);
+
+// re-render
+render();
+</script>
+<!-- ======= USA — PART 2-B: TIER VI → TIER XI (Tanks only, WTM-focused, best-effort) ======= -->
+<script>
+vehicles.push(
+  /* ---------------------------
+     TIER VI
+     --------------------------- */
+  {
+    id: 'usa_m46_patton_t6',
+    name: 'M46 Patton',
+    nation: 'USA',
+    tier: 'Tier VI',
+    br: 7.0,
+    class: 'Medium Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M46+Patton',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '90 mm M3 — good postwar velocity and handling',
+      armor: 'Moderate frontal turret and hull; vulnerable in hull lower plate and sides',
+      mobility: 'Good mobility for its weight; solid acceleration and traverse',
+      survivability: 'Better than early mediums but still requires angling'
+    },
+    ammo: "AP, APHE, APCR (if available). Use APCR to defeat sloped late-war armor at range; APHE for module damage. Keep backups of AP for most engagements.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M46 Patton)
+      [  TURRET  ]
+     [ ░ CUPOLA ░ ] <- cupola vulnerable to 30-40° hits
+     [ ░ MANTLET ░ ] <- mantlet can be targeted with APCR
+       [ UPPER HULL ]
+     [  LOWER GLA CIS ] <- lower glacis is a reliable penetration point
+
+Notes: Flank to expose side/rear, or bait to hit lower plate; turret ring and cupola are high-value weakspots.`,
+    play: `Playstyle (Long): The M46 Patton is a mobile postwar medium that thrives on combined arms and positional play. Use its reliable 90mm to engage at mid ranges, preferring hull-down or slightly angled engagements to preserve crew. Flank when possible—its mobility lets it reposition quicker than heavy tanks of its era. On maps with long sightlines, take advantage of gun handling and accurate follow-ups; in city fights, use hull angling and turret cover to trade with similar BR opponents. Keep awareness of high-velocity TDs and avoid long-range slugfests without APCR. In team play, hold corridors and support flanks while lighter vehicles scout forward.`,
+    howToKill: `How to Kill the M46:
+- Aim for the lower glacis or the area below the mantlet for reliable penetration.
+- Use high-velocity APCR at range; flank to hit side/rear to destroy modules rapidly.
+- If you can track it, finish with side or rear hull shots to cause crew/module kills.`,
+    meta: 'Postwar medium — flexible flanker & second-line support'
+  },
+
+  /* ---------------------------
+     TIER VII
+     --------------------------- */
+  {
+    id: 'usa_m47_patton_t7',
+    name: 'M47 Patton',
+    nation: 'USA',
+    tier: 'Tier VII',
+    br: 7.6,
+    class: 'Medium Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M47+Patton',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '90 mm M36 (or derivative) — solid postwar penetration',
+      armor: 'Improved turret shape vs earlier Pattons; hull still vulnerable on sides',
+      mobility: 'Good mobility but heavier than early mediums',
+      survivability: 'Good frontal turret protection; watch out for high-pen guns'
+    },
+    ammo: "AP, APHE, APCR. APHE for module and crew damage; APCR or premium to counter sloped faces at range.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M47 Patton)
+      [  TURRET - SLoped  ]
+     [ ░ CUPOLA ░ ] <- cupola still vulnerable
+     [  MANTLET  ] <- aim under mantlet or at turret cheek to disable
+       [ HULL FRONT ]
+     [  LOWER PLATE ] <- weaker than upper hull in many engagements
+
+Notes: Prioritize turret cheek and cupola for crippling hits. Side shots work well when flanked.`,
+    play: `Playstyle (Long): The M47 is a robust mobile medium of early Cold-War ancestry. Use it as a core engagement platform: hold ground, push through broken lines, and support breakthroughs. Rely on hull-down positions where your turret can take hits while you counter with accurate follow-ups. In offensive play, pair with a TD to cover extreme ranges while you close and secure objectives. Avoid exposing the lower hull; trade using turret and angling.`,
+    howToKill: `How to Kill the M47:
+- Target turret cheeks and cupola to cause crew kills or disable gunnery.
+- Use APCR or premium rounds for long-range shots; flank when possible for side/rear kills.`,
+    meta: 'Balanced Cold-War medium — durable turret, moderate mobility'
+  },
+
+  {
+    id: 'usa_m48_patton_t7',
+    name: 'M48 Patton',
+    nation: 'USA',
+    tier: 'Tier VII',
+    br: 8.0,
+    class: 'Medium Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M48+Patton',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '90 mm or 105 mm upgrade variants in later models — strong shell performance',
+      armor: 'Improved frontal turret and hull relative to earlier Pattons; still not an MBT',
+      mobility: 'Good cross-country mobility; heavier but reliable',
+      survivability: 'Good survivability if angled; turret face solid in many encounters'
+    },
+    ammo: "AP, APCR, APHE depending on variant. Use APCR/premium for sloped heavies; APHE to start fires and damage modules.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M48 Patton)
+      [  TURRET  ]
+     [ ░ CUPOLA ░ ] <- aim for cupola for quick crew hits
+     [  MANTLET  ] <- mantlet vicinity can be targeted with APCR
+      [ HULL FRONT ]
+     [  LOWER PLATE ] <- flank to hit lower plate or side hull
+
+Notes: Treat the M48 as a lean MBT-style medium that rewards controlled engagements.`,
+    play: `Playstyle (Long): The M48 excels in combined-arms play: use it to spearhead pushes while remaining mindful of TDs and high-pen snipers. The gun is capable at range, so maintain medium-range dueling with good angling. In urban fights, use the turret's protection to poke corners and support infantry/objectives. Remember to keep mobility to reposition after hits.`,
+    howToKill: `How to Kill the M48:
+- Use premium rounds or APCR at range to counter slope.
+- Flank when possible to hit side/rear weak spots; cupola remains an accessible target from above.`,
+    meta: 'Late Cold-War medium — balanced firepower and protection'
+  },
+
+  /* ---------------------------
+     TIER VIII
+     --------------------------- */
+  {
+    id: 'usa_m60_patton_t8',
+    name: 'M60 Patton',
+    nation: 'USA',
+    tier: 'Tier VIII',
+    br: 9.0,
+    class: 'MBT',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M60+Patton',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '105 mm M68 — effective Cold War gun with good AP and APFSDS in some configs',
+      armor: 'Heavily sloped turret front in later configs; hull decent but can be overmatched',
+      mobility: 'Reasonable mobility for MBT; good for positional play',
+      survivability: 'High survivability when angled and hull-down; weak points at lower plates and cupola'
+    },
+    ammo: "APFSDS/APCR/APHE depending on WTM availability. APFSDS or APCR for long-range penetrations; APHE for module damage at closer ranges.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M60 Patton)
+       [  TURRET (FRONT)  ]
+     [ ░ GUN MANTLET ░ ] <- mantlet can be vulnerable to precise APFSDS/APCR
+       [ UPPER HULL ]
+     [ LOWER PLATE ] <- rear and sides weaker; flank if possible
+
+Notes: Use hull-down and turret angling; avoid head-on shots vs modern MBTs with APFSDS.`,
+    play: `Playstyle (Long): As a true MBT, the M60 is strong at holding mid-map and dominating medium-long engagements. Use its 105 mm to engage at range and rely on turret protection to absorb return fire. Coordinate with teammates to deny flanks. In maps with long sightlines you can outgun many opponents; in close urban fights, be wary of HEAT/HE rounds and flankers.`,
+    howToKill: `How to Kill the M60:
+- Aim for cupola and turret roof from above with aircraft or artillery.
+- Use APFSDS or premium rounds to defeat the mantlet at range; flank to attack side/rear for quick kills.`,
+    meta: 'Classic MBT — long-range brawler & anchor'
+  },
+
+  {
+    id: 'usa_m60a3_t8_variant',
+    name: 'M60A3 (variant)',
+    nation: 'USA',
+    tier: 'Tier VIII',
+    br: 9.2,
+    class: 'MBT',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M60A3',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '105 mm M68 with improved fire control',
+      armor: 'Similar to M60 with improved electronics rather than armor',
+      mobility: 'Good, similar to M60',
+      survivability: 'Fire control upgrades increase first-shot lethality—survivability depends on positioning'
+    },
+    ammo: "APFSDS/APCR recommended; use stabilized firing for first-shot hits.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M60A3)
+      [  TURRET  ]
+     [ CUPOLA ] <- roof vulnerabilities from top attack
+     [ LOWER HULL ] <- flank if opportunity`,
+    play: `Playstyle (Long): Use advanced optics and stabilization to land decisive first shots. Play as a team anchor and peacetime MBT — be mindful of top-attack threats and HEAT spam.`,
+    howToKill: `How to Kill: Top attacks, APFSDS counters, and flanking hits on side armor.`,
+    meta: 'Upgraded MBT with focus on fire control and first-shot advantage'
+  },
+
+  /* ---------------------------
+     TIER IX
+     --------------------------- */
+  {
+    id: 'usa_t72_like_placeholder_t9',
+    name: 'T9 placeholder — (High-end MBT type e.g., T72 equivalent)',
+    nation: 'USA',
+    tier: 'Tier IX',
+    br: 9.5,
+    class: 'MBT',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=Top+Tier+MBT',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: 'High-velocity 120 mm / composite APFSDS capable (varies by variant)',
+      armor: 'Advanced composite/sloped turret; strong frontal protection',
+      mobility: 'Good power-to-weight ratio, agile for heavy MBT',
+      survivability: 'High survivability frontally, vulnerable to top-attack and rear shots'
+    },
+    ammo: "APFSDS / HEAT / APCR depending on WTM availability. Use APFSDS/premiums against well-armored targets at range.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (High-end MBT)
+       [  COMPOSITE TURRET ]
+     [  ░ MANTLET ░ ] <- mantlet remains an important target
+      [ UPPER HULL ]
+     [  REAR/ENGINE ] <- rear attacks or top strikes are effective
+
+Notes: This is a placeholder representing top-tier MBTs in WTM-era lists (exact model may vary). Verify exact model if you require model-specific numbers.`,
+    play: `Playstyle (Long): These vehicles perform as high-end MBTs—dominate mid-to-long ranges, hold corridors, and act as pivot points for pushes. Use combined arms to control flanks, and always be mindful of ATGMs, aircraft top attacks, and flanking TDs.`,
+    howToKill: `How to Kill:
+- Use top-attack munitions, ATGMs or aircraft bombs to hit roof or engine deck.
+- Flank to the rear and hit engine or ammo compartments for rapid kills.`,
+    meta: 'Top-tier MBT — heavy-hitter and anchor (model-dependent)'
+  },
+
+  /* ---------------------------
+     TIER X
+     --------------------------- */
+  {
+    id: 'usa_m1_abrams_t10',
+    name: 'M1 Abrams',
+    nation: 'USA',
+    tier: 'Tier X',
+    br: 10.0,
+    class: 'MBT',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M1+Abrams',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '105/120 mm (platform dependent) — modern APFSDS rounds',
+      armor: 'Composite Chobham-like turret and glacis; very high frontal protection',
+      mobility: 'Excellent powertrain and mobility for modern MBT',
+      survivability: 'Very high; vulnerable primarily to top attacks and rear shots'
+    },
+    ammo: "APFSDS / HEAT; APFSDS is primary for defeating composite armour at range.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M1 Abrams)
+       [  COMPOSITE TURRET ]
+     [  ░ GUN MANTLET ░ ] <- mantlet/optics area can be damaged
+      [  UPPER HULL  ]
+     [  ENGINE / REAR ] <- rear and roof are most vulnerable
+
+Notes: Modern MBT play—use optics, sensors, and first-shot accuracy to win fights.`,
+    play: `Playstyle (Long): The M1 Abrams is a modern main battle tank: hold the line, use high first-shot accuracy, and coordinate with teammates to secure long lanes. Rely on armor and mobility to win duels; try to avoid top-attack vulnerabilities by using terrain and concealment.`,
+    howToKill: `How to Kill:
+- Top attack with aircraft, ATGM or artillery; attack from above when possible.
+- Flank to engine deck or rear hull for catastrophic module damage.`,
+    meta: 'Modern MBT — highest tier armor & mobility; requires combined-arms support'
+  },
+
+  /* ---------------------------
+     TIER XI (Experimental / hypothetical top-tier variants)
+     --------------------------- */
+  {
+    id: 'usa_m1a2_abrams_t11',
+    name: 'M1A2 Abra Tier XI / Advanced variant)',
+    nation: 'USA',
+    tier: 'Tier XI',
+    br: 10.5,
+    class: 'MBT',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=M1A2+Abrams',
+    premium: false,
+    event: false,
+    stats: {
+      main_gun: '120 mm advanced APFSDS — premium round capable',
+      armor: 'Enhanced composite armor and ERA / APS suites in variants',
+      mobility: 'High mobility with advanced drivetrain',
+      survivability: 'Maximized survivability — greatest resistance to frontal assault'
+    },
+    ammo: "APFSDS, specialized premium rounds; use high-penetration rounds for frontal engagement.",
+    weakspots: `ASCII WEAKSPOT DIAGRAM (M1A2)
+      [ ADVANCED TURRET ]
+     [  OPTICS / MANTLET ] <- aim for optics/mantlet for module damage
+      [ UPPER HULL ]
+     [ ROOF / REAR ] <- use ATGMs/air to attack these zones
+
+Notes: Tier XI entries are top-shelf models; confirm if WTM includes any T11 models — otherwise treat these as theoretical or event variants.`,
+    play: `Playstyle (Long): Top-tier MBT designed to dominate any mid-map confrontation. Use situational awareness and allied support; conserve ammo and rely on combined arms. These platforms are less forgiving to mistakes but reward careful positioning.`,
+    howToKill: `How to Kill:
+- Top-attack systems and coordinated strikes from aircraft/ATGM are most reliable.
+- Flank with multiple high-penetration sources to overload crew and modules.`,
+    meta: 'Experimental/Top-tier MBT — treat as event or late-release content; verify model if found in WTM'
+  }
+);
+
+// Re-render so these new entries appear
+render();
+</script>
+<section id="tier-1">
+  <h2>Tier I</h2>
+<script>
+// After injecting Tier I vehicles, re-render UI
+/* ===== USSR — PART: Tier I → V (WTM-only) ===== */
+vehicles.push(
+  /* Tier I */
+  {
+    id: 'ussr_t26',
+    name: 'T-26',
+    nation: 'USSR',
+    tier: 'Tier I',
+    br: 1.3,
+    class: 'Light Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=T-26',
+    premium: false,
+    event: false,
+    stats: { gun: '45 mm 20-K', armor: '6–25 mm (thin)', mobility: 'Average' },
+    play: 'Light scout/harasser — use cover and aim for side/rear shots; avoid head-ons.',
+    weakspots: 'Turret ring, lower glacis, side/rear hull.',
+    notes: 'Fragile but accurate relative to other Tier I lights.'
+  },
+
+  {
+    id: 'ussr_bt5',
+    name: 'BT-5',
+    nation: 'USSR',
+    tier: 'Tier I',
+    br: 1.3,
+    class: 'Light Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=BT-5',
+    premium: false,
+    event: false,
+    stats: { gun: '45 mm 20-K', armor: '10–20 mm (very light)', mobility: 'Very fast on roads' },
+    play: 'High-speed scout — exploit speed to spot and flank; avoid armor duels.',
+    weakspots: 'Entire hull and turret; engine/crew vulnerable to any AP.',
+    notes: 'Speed is the main survival tool; use hard ground for wheeled mode where available.'
+  },
+
+  {
+    id: 'ussr_bt7',
+    name: 'BT-7',
+    nation: 'USSR',
+    tier: 'Tier I',
+    br: 1.3,
+    class: 'Light Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=BT-7',
+    premium: false,
+    event: false,
+    stats: { gun: '45 mm 20-K', armor: '10–22 mm', mobility: 'Excellent' },
+    play: 'Fast flanker similar to BT-5; capitalize on open maps to circle opponents.',
+    weakspots: 'Flat armor, turret ring and engine deck; avoid getting tracked.',
+    notes: 'Very vulnerable to concentrated fire; trade only from unexpected angles.'
+  },
+
+  /* Tier II */
+  {
+    id: 'ussr_t50',
+    name: 'T-50',
+    nation: 'USSR',
+    tier: 'Tier II',
+    br: 1.7,
+    class: 'Light Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=T-50',
+    premium: false,
+    event: false,
+    stats: { gun: '45 mm 20-K (improved)', armor: '15–45 mm (sloped)', mobility: 'Good' },
+    play: 'Stealthy scout with surprisingly effective sloped plates — bully other lights and spot.',
+    weakspots: 'Cupola, lower plate, gun mantlet area.',
+    notes: 'Better survivability than many contemporaries due to sloping.'
+  },
+
+  {
+    id: 'ussr_t28',
+    name: 'T-28',
+    nation: 'USSR',
+    tier: 'Tier II',
+    br: 1.7,
+    class: 'Medium Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=T-28',
+    premium: false,
+    event: false,
+    stats: { gun: '76 mm L-10', armor: '20–30 mm', mobility: 'Slowish, heavy profile' },
+    play: 'Support/assault medium — use its gun to punish lights and early mediums; avoid long exposures.',
+    weakspots: 'Large profile, side armor and hull roof, MG ports.',
+    notes: 'Big target; use terrain to mask sides and minimize exposure.'
+  },
+
+  {
+    id: 'ussr_t26_4',
+    name: 'T-26-4 (KT-28)',
+    nation: 'USSR',
+    tier: 'Tier II',
+    br: 1.7,
+    class: 'Light Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=T-26-4',
+    premium: false,
+    event: false,
+    stats: { gun: '76 mm KT-28', armor: '6–25 mm', mobility: 'Average' },
+    play: 'HE/HEAT specialist — ambush and use high-explosive to damage modules and infantry.',
+    weakspots: 'Thin plates everywhere — flank to kill quickly.',
+    notes: 'Good close-range punch vs soft targets; avoid TDs and heavies.'
+  },
+
+  /* Tier III */
+  {
+    id: 'ussr_t34_1940',
+    name: 'T-34 (1940)',
+    nation: 'USSR',
+    tier: 'Tier III',
+    br: 2.7,
+    class: 'Medium Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=T-34+1940',
+    premium: false,
+    event: false,
+    stats: { gun: '76 mm L-11', armor: '45 mm sloped', mobility: 'Excellent' },
+    play: 'Classic flanker — use sloped hull and mobility to outmaneuver and flank enemies.',
+    weakspots: 'Turret cheeks, lower glacis, mantlet area.',
+    notes: 'Bounces many shells when angled; maintain momentum and flank.'
+  },
+
+  {
+    id: 'ussr_t34_1942',
+    name: 'T-34 (1942)',
+    nation: 'USSR',
+    tier: 'Tier III',
+    br: 2.7,
+    class: 'Medium Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=T-34+1942',
+    premium: false,
+    event: false,
+    stats: { gun: '76 mm F-34', armor: '45 mm sloped', mobility: 'Excellent' },
+    play: 'All-round medium — excellent mobility and survivability; ideal for flanking and hull-down peeks.',
+    weakspots: 'Lower plate, turret ring, rear engine deck.',
+    notes: 'Highly versatile; one of the strongest mid-low tier performers.'
+  },
+
+  {
+    id: 'ussr_kv1_l11',
+    name: 'KV-1 (L-11)',
+    nation: 'USSR',
+    tier: 'Tier III',
+    br: 3.7,
+    class: 'Heavy Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=KV-1+L-11',
+    premium: false,
+    event: false,
+    stats: { gun: '76 mm L-11', armor: '75 mm front (thick)', mobility: 'Slow' },
+    play: 'Frontline brawler — absorb hits and trade at close-mid ranges; support pushes.',
+    weakspots: 'Turret ring, driver's port, lower hull corners.',
+    notes: 'Very durable for early tiers; keep frontal armor facing enemy.'
+  },
+
+  /* Tier IV */
+  {
+    id: 'ussr_kv1s',
+    name: 'KV-1S',
+    nation: 'USSR',
+    tier: 'Tier IV',
+    br: 4.0,
+    class: 'Heavy Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=KV-1S',
+    premium: false,
+    event: false,
+    stats: { gun: '76 mm ZIS-5', armor: '60–75 mm', mobility: 'Better than KV-1' },
+    play: 'Faster heavy — aggressive support and flank-block; trade turret hits when needed.',
+    weakspots: 'Turret cheeks, lower glacis, cupola.',
+    notes: 'Good mix of armor and mobility; avoid APCR snipers.'
+  },
+
+  {
+    id: 'ussr_kv85',
+    name: 'KV-85',
+    nation: 'USSR',
+    tier: 'Tier IV',
+    br: 4.7,
+    class: 'Heavy Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=KV-85',
+    premium: false,
+    event: false,
+    stats: { gun: '85 mm D-5T', armor: '75 mm front (improved)', mobility: 'Moderate' },
+    play: 'Hard-hitting heavy — use turret armor and punch with 85mm rounds; hull-down when possible.',
+    weakspots: 'Turret ring, driver port, lower hull.',
+    notes: 'Strong frontally; aim for angled trades and support teammates.'
+  },
+
+  {
+    id: 'ussr_t34_85',
+    name: 'T-34-85',
+    nation: 'USSR',
+    tier: 'Tier IV',
+    br: 5.0,
+    class: 'Medium Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=T-34-85',
+    premium: false,
+    event: false,
+    stats: { gun: '85 mm D-5T', armor: 'Improved turret, 45 mm hull', mobility: 'Excellent' },
+    play: 'Versatile medium — strong gun for flanking and mid-range fights; maintain mobility.',
+    weakspots: 'Turret cheeks, lower plate, sides when flanked.',
+    notes: 'Very effective across many maps; skilled crews will excel.'
+  },
+
+  /* Tier V */
+  {
+    id: 'ussr_is1',
+    name: 'IS-1',
+    nation: 'USSR',
+    tier: 'Tier V',
+    br: 5.7,
+    class: 'Heavy Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=IS-1',
+    premium: false,
+    event: false,
+    stats: { gun: '85 mm D-5T', armor: '60–120 mm (sloped)', mobility: 'Moderate' },
+    play: 'Heavy brawler — use frontal armor and angling; trade at close to mid ranges.',
+    weakspots: 'Lower glacis, turret ring, side skirts.',
+    notes: 'Good blend of protection and punch for Tier V fights.'
+  },
+
+  {
+    id: 'ussr_is2',
+    name: 'IS-2',
+    nation: 'USSR',
+    tier: 'Tier V',
+    br: 6.3,
+    class: 'Heavy Tank',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=IS-2',
+    premium: false,
+    event: false,
+    stats: { gun: '122 mm D-25T', armor: 'Up to 120 mm', mobility: 'Slow, heavy recoil' },
+    play: 'Alpha-strike heavy — one-shot potential with 122mm HE/HEAT/APHE, trade carefully due to long reload.',
+    weakspots: 'Lower front plate, turret ring, ammo racks at side/rear.',
+    notes: 'Massive firepower; avoid being isolated due to long reload.'
+  },
+
+  {
+    id: 'ussr_su85',
+    name: 'SU-85',
+    nation: 'USSR',
+    tier: 'Tier V',
+    br: 5.3,
+    class: 'Tank Destroyer',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=SU-85',
+    premium: false,
+    event: false,
+    stats: { gun: '85 mm D-5S', armor: 'Casemate 45–60 mm', mobility: 'Good' },
+    play: 'Hull-down/ambush TD — use concealment and high-pen rounds to snipe tanks from cover.',
+    weakspots: 'No turret — side/rear shots kill quickly; viewports are vulnerable.',
+    notes: 'Very effective at range; be wary in close urban fights.'
+  },
+
+  {
+    id: 'ussr_su100',
+    name: 'SU-100',
+    nation: 'USSR',
+    tier: 'Tier V',
+    br: 6.0,
+    class: 'Tank Destroyer',
+    type: 'Ground',
+    image: 'https://via.placeholder.com/900x506?text=SU-100',
+    premium: false,
+    event: false,
+    stats: { gun: '100 mm D-10S', armor: 'Sloped casemate 45–60 mm', mobility: 'Good' },
+    play: 'Long-range hunter — high-velocity AP rounds excel at piercing mid-tier armor; use hull-down cover.',
+    weakspots: 'Cupola (if present), sides and rear; limited traverse of casemate.',
+    notes: 'One of the best mid-tier TDs for punching through heavies.'
+  }
+);
+
+/* Re-render so added entries appear if your site is already loaded */
+try { render(); } catch(e) { /* render may be defined later; safe to ignore if not */ }
+</script>
